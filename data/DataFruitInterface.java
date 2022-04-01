@@ -1,12 +1,11 @@
 package data;
 
+/**
+ * Interface de la classe Fruit de la couche Data.
+ */
 public interface DataFruitInterface {
 
-    /**
-    *Return */
-    public int[2] getFruitsPos();
+    public int getValue(String fruitType);
 
-    public int getFruitValue(String fruitType);
 
-    public int getNbFruits(); //num of fruits left
 }
