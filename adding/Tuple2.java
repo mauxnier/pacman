@@ -1,4 +1,4 @@
-package inhanced;
+package adding;
 
 /**
  * Classe permettant d'utiliser les tuples en java.

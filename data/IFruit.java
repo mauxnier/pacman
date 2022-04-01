@@ -1,6 +1,6 @@
 package data;
 
-import inhanced.Tuple2;
+import adding.Tuple2;
 
 /**
  * Interface de la classe Fruit de la couche Data.
