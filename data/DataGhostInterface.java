@@ -1,4 +1,6 @@
-public interface GhostInterface {
+package data;
+
+public interface DataGhostInterface {
 
     public int[2] getPosition();
 

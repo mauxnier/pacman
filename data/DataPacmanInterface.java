@@ -1,4 +1,6 @@
-public interface PacmanInterface {
+package data;
+
+public interface DataPacmanInterface {
 
     getPacmanPos();
 

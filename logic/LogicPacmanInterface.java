@@ -1,4 +1,4 @@
-public interface PacmanInterface {
+public interface LogicPacmanInterface {
 
     movePacman(int level);
 

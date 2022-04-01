@@ -1,4 +1,6 @@
-public interface FruitInterface {
+package data;
+
+public interface DataFruitInterface {
 
     /**
     *Return */
