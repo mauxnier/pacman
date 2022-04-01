@@ -3,7 +3,7 @@ package data;
 /**
  * Interface de la classe Pacman de la couche Data.
  */
-public interface DataPacmanInterface {
+public interface IPacman {
 
     /**
      * Donne la position du pacman sur la grille de jeu.
@@ -24,8 +24,8 @@ public interface DataPacmanInterface {
     public int getPoints();
 
     /**
-     * Donne le statut du pacman.
-     * @return statut ["moving", "stopped"]
+     * Retourne si le pacman est en train de bouger.
+     * @return pacman bouge
      */
-    public String isMoving();
+    public boolean isMoving();
 }

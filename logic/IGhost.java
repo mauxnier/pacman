@@ -1,6 +1,6 @@
 package logic;
 
-public interface LogicGhostInterface {
+public interface IGhost {
 
     moveGhost(int level);
 

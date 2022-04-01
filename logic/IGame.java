@@ -1,6 +1,6 @@
 package logic;
 
-public interface LogicGameInterface {
+public interface IGame {
     
     endLevel(int level);
     

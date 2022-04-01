@@ -3,7 +3,7 @@ package data;
 /**
  * Interface de la classe Ghost de la couche Data.
  */
-public interface DataGhostInterface {
+public interface IGhost {
 
     /**
      * Donne la position du fantôme sur la grille de jeu.

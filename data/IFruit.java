@@ -3,7 +3,7 @@ package data;
 /**
  * Interface de la classe Fruit de la couche Data.
  */
-public interface DataFruitInterface {
+public interface IFruit {
 
     /**
      * Donne la position du fruit sur la grille de jeu.
@@ -16,7 +16,13 @@ public interface DataFruitInterface {
      * Fruit ou super-fruit.
      * @return type du fruit
      */
-    public int getType();
+    public String getType();
+
+    /**
+     * Donne le nombre de point correspondent au type du fruit.
+     * @return nombre de point
+     */
+    public int getPoints();
 
     /**
      * Retourne si le fruit a été mangé.

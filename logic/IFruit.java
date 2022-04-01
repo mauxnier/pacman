@@ -1,6 +1,6 @@
 package logic;
 
-public interface LogicFruitInterface {
+public interface IFruit {
     eatFruit(Fruit eatedFruit);
 
     placeFruits(int level);

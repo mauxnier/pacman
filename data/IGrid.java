@@ -3,7 +3,7 @@ package data;
 /**
  * Interface de la classe Grid de la couche Data.
  */
-public interface DataGridInterface {
+public interface IGrid {
 
     /**
      * Donne la position des murs sur la grille de jeu.
