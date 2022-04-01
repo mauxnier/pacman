@@ -2,9 +2,9 @@ package data;
 
 /**
  * Interface de la classe Pacman de la couche Data.
+ * Couche Data : donner l’état initial du jeu pour un niveau donné.
  */
 public interface IPacman {
-
     /**
      * Donne la position du pacman sur la grille de jeu.
      * @return position du pacman

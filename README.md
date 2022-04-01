@@ -1,6 +1,39 @@
 # PACMAN
 TP6 : Pac-Man
 
+## TODO
+Méthode à implémenter :
+
+Game :
+- setPoints
+- levelUp
+- over
+- start
+
+Grid :
+- init
+- isAWall
+
+Pacman :
+- superpower
+- spawn
+- die
+- hurt
+- move
+- nbFruitsEaten
+- isOnGhost
+- isOnFruit
+- eatGhost
+- eatFruit
+
+Ghost :
+- isEaten
+- spawn
+- getShape
+- getBehaviour
+- die
+- move
+
 ### Règles pour les méthodes des interfaces :
 - Utilisation de l'anglais pour le nom des fichiers, méthodes et attributs mais commentaires en français.
 - On distingue les **Interfaces** par le **I** devant le nom.

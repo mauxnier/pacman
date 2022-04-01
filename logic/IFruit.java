@@ -1,5 +1,9 @@
 package logic;
 
+/**
+ * Interface de la classe Fruit de la couche Logic.
+ * Couche Logic : donner l’état du jeu en fonction d’une direction.
+ */
 public interface IFruit {
     eatFruit(Fruit eatedFruit);
 

@@ -1,10 +1,15 @@
 package data;
 
+import logic.Fruit;
+import logic.Ghost;
+import logic.Grid;
+import logic.Pacman;
+
 /**
  * Interface de la classe Game de la couche Data.
+ * Couche Data : donner l’état initial du jeu pour un niveau donné.
  */
 public interface IGame {
-
     /**
      * Donne le niveau du jeu.
      * @return niveau de jeu
@@ -22,29 +27,23 @@ public interface IGame {
      * Retourne la grille du jeu.
      * @return grille du jeu
      */
-    public DataGrid getGrid();
+    public Grid getGrid();
 
     /**
      * Retourne le pacman du jeu.
      * @return pacman
      */
-    public DataPacman getPacman();
+    public Pacman getPacman();
 
     /**
      * Retourne les fantômes du jeu.
      * @return fantômes
      */
-    public DataGhost[] getGhosts();
+    public Ghost[] getGhosts();
 
     /**
      * Retourne les fruits du jeu.
      * @return fruits
      */
-    public DataFruit[] getFruits();
-
-    /**
-     * Retourne si le fruit a été mangé.
-     * @return fruit est mangé
-     */
-    public boolean isStarted();
+    public Fruit[] getFruits();
 }

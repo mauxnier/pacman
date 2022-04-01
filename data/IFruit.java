@@ -1,15 +1,17 @@
 package data;
 
+import inhanced.Tuple2;
+
 /**
  * Interface de la classe Fruit de la couche Data.
+ * Couche Data : donner l’état initial du jeu pour un niveau donné.
  */
 public interface IFruit {
-
     /**
      * Donne la position du fruit sur la grille de jeu.
      * @return position du fruit
      */
-    public int[][] getPosition();
+    public Tuple2<Integer, Integer> getPosition();
 
     /**
      * Donne le type du fruit.
