@@ -5,9 +5,27 @@ package data;
  */
 public interface DataPacmanInterface {
 
-    getPacmanPos();
+    /**
+     * Donne la position du pacman sur la grille de jeu.
+     * @return position du pacman
+     */
+    public int[][] getPosition();
 
-    getNbLives();
+    /**
+     * Donne le nombre de vie restant pour le pacman.
+     * @return nombre de vie
+     */
+    public int getNbLives();
 
-    getPacmanState();
+    /**
+     * Donne le nombre de point du pacman.
+     * @return nombre de point
+     */
+    public int getPoints();
+
+    /**
+     * Donne le statut du pacman.
+     * @return statut ["moving", "stopped"]
+     */
+    public String isMoving();
 }

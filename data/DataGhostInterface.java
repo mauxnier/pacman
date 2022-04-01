@@ -5,7 +5,15 @@ package data;
  */
 public interface DataGhostInterface {
 
-    public int[2] getPosition();
+    /**
+     * Donne la position du fantôme sur la grille de jeu.
+     * @return position du fantôme
+     */
+    public int[][] getPosition();
 
+    /**
+     * Donne la couleur du fantôme.
+     * @return couleur du fantôme
+     */
     public String getColor();
 }
