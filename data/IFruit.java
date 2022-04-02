@@ -15,14 +15,14 @@ public interface IFruit {
 
     /**
      * Donne le type du fruit.
-     * Fruit ou super-fruit.
+     * Fruit / super-fruit etc...
      * @return type du fruit
      */
     public String getType();
 
     /**
-     * Donne le nombre de point correspondent au type du fruit.
-     * @return nombre de point
+     * Donne la valeur en points correspondent au type du fruit.
+     * @return nombre de points
      */
     public int getPoints();
 

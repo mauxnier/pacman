@@ -5,34 +5,32 @@ TP6 : Pac-Man
 Méthode à implémenter :
 
 Game :
-- setPoints
-- levelUp
-- over
-- start
+- logic.levelUp
+- logic.over
+- logic.start
 
 Grid :
-- init
-- isAWall
+- logic.init
 
 Pacman :
-- superpower
-- spawn
-- die
-- hurt
-- move
-- nbFruitsEaten
-- isOnGhost
-- isOnFruit
-- eatGhost
-- eatFruit
+- logic.superpower
+- logic.spawn
+- logic.die
+- logic.hurt
+- logic.move
+- data.nbFruitsEaten
+- data.isOnGhost
+- data.isOnFruit
+- logic.eatGhost
+- logic.eatFruit
 
 Ghost :
-- isEaten
-- spawn
-- getShape
-- getBehaviour
-- die
-- move
+- data.isEaten
+- logic.spawn
+- data.getShape
+- data.getBehaviour
+- logic.die
+- logic.move
 
 ### Règles pour les méthodes des interfaces :
 - Utilisation de l'anglais pour le nom des fichiers, méthodes et attributs mais commentaires en français.
