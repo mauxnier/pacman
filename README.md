@@ -2,24 +2,13 @@
 TP6 : Pac-Man
 
 ## TODO
+- Générer les méthodes dans les classes.
+- Javadoc html generate
+
 Méthode à implémenter :
 
-Game :
-- logic.levelUp
-- logic.over
-- logic.start
-
-Grid :
-- logic.init
-
 Pacman :
-- logic.superpower
 - logic.spawn
-- logic.die
-- logic.hurt
-- logic.move
-- logic.eatGhost
-- logic.eatFruit
 
 Ghost :
 - logic.spawn

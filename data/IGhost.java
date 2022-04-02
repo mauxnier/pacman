@@ -7,11 +7,12 @@ import adding.Tuple2;
  * Couche Data : donner l’état initial du jeu pour un niveau donné.
  */
 public interface IGhost {
+
     /**
      * Donne la position du fantôme sur la grille de jeu.
      * @return position du fantôme
      */
-    public Tuple2<Integer, Integer> getPosition();
+    public Tuple2<Integer, Integer> getPos();
 
     /**
      * Donne la valeur en points du fantôme.

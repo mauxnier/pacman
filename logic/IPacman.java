@@ -6,8 +6,48 @@ package logic;
  */
 public interface IPacman {
 
-    movePacman(int level);
+    /**
+     * Bouge le pacman.
+     */
+    public void move();
 
-    eatGhost(Ghost eatedGhost;)
+    /**
+     * Mange un fruit.
+     * @param eatedFruit le fruit mangé
+     */
+    public void eatFruit(Fruit eatedFruit);
+
+    /**
+     * Mange un fantôme.
+     * @param eatedGhost le fantôme mangé
+     */
+    public void eatGhost(Ghost eatedGhost);
+
+    /**
+     * Donne le pouvoir de manger les fantômes.
+     */
+    public void superpower();
+
+    /**
+     * Blesse le pacman en lui retirant une vie.
+     */
+    public void hurt();
+
+    /**
+     * Tue le pacman.
+     */
+    public void die();
+
+    /**
+     * Retourne si le pacman est sur un fantôme.
+     * @return pacman sur un fantôme
+     */
+    public boolean isOnGhost();
+
+    /**
+     * Retourne si le pacman est sur un fruit.
+     * @return pacman sur un fruit
+     */
+    public boolean isOnFruit();
 
 }

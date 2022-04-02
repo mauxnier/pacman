@@ -7,11 +7,12 @@ import adding.Tuple2;
  * Couche Data : donner l’état initial du jeu pour un niveau donné.
  */
 public interface IFruit {
+
     /**
      * Donne la position du fruit sur la grille de jeu.
      * @return position du fruit
      */
-    public Tuple2<Integer, Integer> getPosition();
+    public Tuple2<Integer, Integer> getPos();
 
     /**
      * Donne le type du fruit.
@@ -25,11 +26,4 @@ public interface IFruit {
      * @return nombre de points
      */
     public int getPoints();
-
-    /**
-     * Retourne si le fruit a été mangé.
-     * @return fruit est mangé
-     */
-    public boolean isEaten();
-
 }

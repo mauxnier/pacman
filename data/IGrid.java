@@ -16,15 +16,50 @@ public interface IGrid {
     public Tuple2<Integer, Integer>[] getWallsPos(int level);
 
     /**
+     * Donne la position initiale des fruits sur la grille de jeu.
+     * @param level le niveau de jeu
+     * @return position initiale des fruits
+     */
+    public Tuple2<Integer, Integer>[] getFruitsSpawnPos(int level);
+
+    /**
+     * Donne la position initiale des fantômes sur la grille de jeu.
+     * @param level le niveau de jeu
+     * @return position initiale du fantômes
+     */
+    public Tuple2<Integer, Integer> getGhostSpawnPos(int level);
+
+    /**
+     * Donne la position initiale du pacman sur la grille de jeu.
+     * @param level le niveau de jeu
+     * @return position initiale du pacman
+     */
+    public Tuple2<Integer, Integer> getPacmanSpawnPos(int level);
+
+    /**
+     * Met en place les murs pour le niveau de jeu.
+     */
+    public void placeWalls();
+
+    /**
+     * Met en place les fruits pour le niveau de jeu.
+     */
+    public void placeFruits();
+
+    /**
+     * Met en place les fantômes pour le niveau de jeu.
+     */
+    public void placeGhosts();
+
+    /**
+     * Met en place pacman pour le niveau de jeu.
+     */
+    public void placePacman();
+
+    /**
      * Donne si la position donnée en paramètre correspond à un mur.
      * @param coords couple (x, y) correspondant à la position dans la grille de jeu.
      * @return si la position correspond à un mur
      */
     public boolean isPosAWall(Tuple2<Integer, Integer> coords);
-
-    /**
-     * Donne le nombre de fruits restants pour le jeu.
-     * @return le nombre de fruits restants
-     */
-    public int getNbFruitsLeft();
 }

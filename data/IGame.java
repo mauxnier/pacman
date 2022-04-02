@@ -10,6 +10,22 @@ import logic.Pacman;
  * Couche Data : donner l’état initial du jeu pour un niveau donné.
  */
 public interface IGame {
+
+    /**
+     * Lance le jeu.
+     */
+    public void start();
+
+    /**
+     * Stop le jeu.
+     */
+    public void over();
+
+    /**
+     * Créer le niveau de jeu.
+     */
+    public void createLevel();
+
     /**
      * Donne le niveau du jeu.
      * @return niveau de jeu
@@ -18,10 +34,9 @@ public interface IGame {
 
     /**
      * Donne la vitesse du niveau de jeu.
-     * @param level niveau de jeu
      * @return vitesse du jeu
      */
-    public int getSpeed(int level);
+    public int getSpeed();
 
     /**
      * Retourne la grille du jeu.
@@ -46,22 +61,4 @@ public interface IGame {
      * @return fruits
      */
     public Fruit[] getFruits();
-
-    /**
-     * Donne le nombre de points gagné dans la partie.
-     * @return nombre de points
-     */
-    public int getPoints();
-
-    /**
-     * Modifie le nombre de points gagné dans la partie.
-     * @param points nouveau nombre de points
-     */
-    public void setPoints(int points);
-
-    /**
-     * Ajoute un nombre de points au total déjà gagné dans la partie.
-     * @param points nombre de points à ajouter
-     */
-    public void addPoints(int points);
 }

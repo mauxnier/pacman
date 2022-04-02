@@ -6,4 +6,9 @@ package logic;
  */
 public interface IGrid {
 
+    /**
+     * Donne le nombre de fruits restants pour le niveau de jeu.
+     * @return le nombre de fruits restants
+     */
+    public int getNbFruitsLeft();
 }

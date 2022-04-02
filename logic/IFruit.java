@@ -5,7 +5,10 @@ package logic;
  * Couche Logic : donner l’état du jeu en fonction d’une direction.
  */
 public interface IFruit {
-    eatFruit(Fruit eatedFruit);
 
-    placeFruits(int level);
+    /**
+     * Retourne si le fruit a été mangé.
+     * @return fruit est mangé
+     */
+    public boolean isEaten();
 }

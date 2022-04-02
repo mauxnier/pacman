@@ -6,8 +6,20 @@ package logic;
  */
 public interface IGhost {
 
-    moveGhost(int level);
+    /**
+     * Bouge le fantôme.
+     */
+    public void move();
 
-    killPacman();
+    /**
+     * Mange un pacman.
+     * @param eatedPacman le pacman mangé
+     */
+    public void eatPacman(Pacman eatedPacman);
+
+    /**
+     * Tue le fantôme.
+     */
+    public void die();
 
 }
