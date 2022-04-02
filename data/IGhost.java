@@ -14,15 +14,27 @@ public interface IGhost {
     public Tuple2<Integer, Integer> getPosition();
 
     /**
+     * Donne la valeur en points du fantôme.
+     * Utilisé quand il est mangé par le pacman.
+     * @return points du fantôme
+     */
+    public int getPoints();
+
+    /**
      * Donne la couleur du fantôme.
      * @return couleur du fantôme
      */
     public String getColor();
 
     /**
-     * Donne la valeur en points du fantôme.
-     * Utilisé quand il est mangé par le pacman.
-     * @return points du fantôme
+     * Retourne la forme du fantôme.
+     * @return forme du fantôme
      */
-    public int getPoints();
+    public String getShape();
+
+    /**
+     * Retourne le comportement du fantôme.
+     * @return comportement du fantôme
+     */
+    public String getBehaviour();
 }

@@ -24,4 +24,16 @@ public interface IPacman {
      * @return pacman bouge
      */
     public boolean isMoving();
+
+    /**
+     * Retourne si le pacman est sur un fantôme.
+     * @return pacman sur un fantôme
+     */
+    public boolean isOnGhost();
+
+    /**
+     * Retourne si le pacman est sur un fruit.
+     * @return pacman sur un fruit
+     */
+    public boolean isOnFruit();
 }

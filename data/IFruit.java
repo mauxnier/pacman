@@ -31,4 +31,5 @@ public interface IFruit {
      * @return fruit est mangé
      */
     public boolean isEaten();
+
 }

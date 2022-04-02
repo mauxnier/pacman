@@ -18,19 +18,16 @@ Pacman :
 - logic.die
 - logic.hurt
 - logic.move
-- data.nbFruitsEaten
-- data.isOnGhost
-- data.isOnFruit
 - logic.eatGhost
 - logic.eatFruit
 
 Ghost :
-- data.isEaten
 - logic.spawn
-- data.getShape
-- data.getBehaviour
+- logic.eat
 - logic.die
 - logic.move
+
+
 
 ### Règles pour les méthodes des interfaces :
 - Utilisation de l'anglais pour le nom des fichiers, méthodes et attributs mais commentaires en français.
