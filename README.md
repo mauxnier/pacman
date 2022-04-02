@@ -2,23 +2,8 @@
 TP6 : Pac-Man
 
 ## TODO
-- Générer les méthodes dans les classes.
-- Javadoc html generate
 
-Méthode à implémenter :
-
-Pacman :
-- logic.spawn
-
-Ghost :
-- logic.spawn
-- logic.eat
-- logic.die
-- logic.move
-
-
-
-### Règles pour les méthodes des interfaces :
+### Règles pour les méthodes des interfaces & classes :
 - Utilisation de l'anglais pour le nom des fichiers, méthodes et attributs mais commentaires en français.
 - On distingue les **Interfaces** par le **I** devant le nom.
 - Pas besoin de **répeter** le nom de l'objet dans la méthode. *Exemple: pacman.movePacman() --> pacman.move()*.

@@ -1,12 +1,19 @@
 package data;
 
 import adding.Tuple2;
+import logic.Game;
 
 /**
  * Interface de la classe Grid de la couche Data.
  * Couche Data : donner l’état initial du jeu pour un niveau donné.
  */
 public interface IGrid {
+
+    /**
+     * Retourne le jeu lié à la grille de jeu.
+     * @return le jeu
+     */
+    public Game getGame();
 
     /**
      * Donne la position des murs sur la grille de jeu.
