@@ -1,10 +1,5 @@
 package data;
 
-import logic.Fruit;
-import logic.Ghost;
-import logic.Grid;
-import logic.Pacman;
-
 /**
  * Interface de la classe Game de la couche Data.
  * Couche Data : donner l’état initial du jeu pour un niveau donné.

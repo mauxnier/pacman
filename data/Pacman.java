@@ -1,17 +1,8 @@
-package logic;
+package data;
 
 import adding.Tuple2;
-import data.IPacman;
 
 public class Pacman implements IPacman {
-
-    /**
-     * Constructeur de la classe.
-     */
-    public Pacman() {
-
-    }
-
     /**
      * Retourne la grille de jeu lié au pacman.
      * @return la grille de jeu.

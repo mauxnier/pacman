@@ -1,17 +1,8 @@
-package logic;
+package data;
 
 import adding.Tuple2;
-import data.IGrid;
 
 public class Grid implements IGrid {
-
-    /**
-     * Constructeur de la classe.
-     */
-    public Grid(Game game) {
-
-    }
-
     /**
      * Retourne le jeu lié à la grille de jeu.
      * @return le jeu

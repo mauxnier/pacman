@@ -1,14 +1,6 @@
 package data;
 
 public class Game implements IGame {
-
-    /**
-     * Constructeur de la classe.
-     */
-    public Game() {
-
-    }
-
     /**
      * Lance le jeu.
      */

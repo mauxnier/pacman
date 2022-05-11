@@ -3,14 +3,6 @@ package data;
 import adding.Tuple2;
 
 public class Fruit implements IFruit {
-
-    /**
-     * Constructeur de la classe.
-     */
-    public Fruit(Grid grid) {
-
-    }
-
     /**
      * Retourne la grille de jeu lié au fruit.
      * @return la grille de jeu.

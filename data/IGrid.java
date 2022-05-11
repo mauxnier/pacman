@@ -1,7 +1,6 @@
 package data;
 
 import adding.Tuple2;
-import logic.Game;
 
 /**
  * Interface de la classe Grid de la couche Data.

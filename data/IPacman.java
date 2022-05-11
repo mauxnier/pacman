@@ -1,7 +1,6 @@
 package data;
 
 import adding.Tuple2;
-import logic.Grid;
 
 /**
  * Interface de la classe Pacman de la couche Data.
