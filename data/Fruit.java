@@ -1,7 +1,6 @@
-package logic;
+package data;
 
 import adding.Tuple2;
-import data.IFruit;
 
 public class Fruit implements IFruit {
 

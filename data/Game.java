@@ -1,6 +1,4 @@
-package logic;
-
-import data.IGame;
+package data;
 
 public class Game implements IGame {
 
