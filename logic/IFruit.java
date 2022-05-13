@@ -2,7 +2,7 @@ package logic;
 
 /**
  * Interface de la classe Fruit de la couche Logic.
- * Couche Logic : donner l’état du jeu en fonction d’une direction.
+ * Couche Logic : donner l'état du jeu en fonction d'une direction.
  */
 public interface IFruit {
 
@@ -11,4 +11,9 @@ public interface IFruit {
      * @return fruit est mangé
      */
     public boolean isEaten();
+
+    /**
+     * Fait disparaître le fruit
+     */
+    public void disappear();
 }
