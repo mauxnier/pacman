@@ -9,12 +9,6 @@ import adding.Tuple2;
 public interface IPacman {
 
     /**
-     * Retourne la grille de jeu lié au pacman.
-     * @return la grille de jeu.
-     */
-    public Grid getGrid();
-
-    /**
      * Donne la position du pacman sur la grille de jeu.
      * @return position du pacman
      */
@@ -25,4 +19,10 @@ public interface IPacman {
      * @return nombre de vie
      */
     public int getLives();
+
+    /**
+     * Donne le nombre de points accumulé par le pacman.
+     * @return nombre de points
+     */
+    public int getPoints();
 }

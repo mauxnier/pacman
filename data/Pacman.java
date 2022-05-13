@@ -3,13 +3,19 @@ package data;
 import adding.Tuple2;
 
 public class Pacman implements IPacman {
+
+    private Tuple2<Integer, Integer> pos; // Position sur la grille
+    private int lives; // Nombre de vies pour la partie
+    private int points; // Nombre de points pour la partie
+
     /**
-     * Retourne la grille de jeu lié au pacman.
-     * @return la grille de jeu.
+     * Constructeur de la classe.
      */
-    @Override
-    public Grid getGrid() {
-        return null;
+    public Pacman(int x, int y, int nbLives, int nbPoints) {
+        this.pos.setFirst(x);
+        this.pos.setSecond(y);
+        this.lives = nbLives;
+        this.points = nbPoints;
     }
 
     /**
@@ -27,6 +33,16 @@ public class Pacman implements IPacman {
      */
     @Override
     public int getLives() {
+        return 0;
+    }
+
+    /**
+     * Donne le nombre de points accumulé par le pacman.
+     *
+     * @return nombre de points
+     */
+    @Override
+    public int getPoints() {
         return 0;
     }
 }

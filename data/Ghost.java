@@ -3,6 +3,14 @@ package data;
 import adding.Tuple2;
 
 public class Ghost implements IGhost {
+
+    /**
+     * Constructeur de la classe.
+     */
+    public Ghost() {
+
+    }
+
     /**
      * Retourne la grille de jeu lié au fantôme.
      * @return la grille de jeu.

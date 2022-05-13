@@ -1,6 +1,18 @@
 package data;
 
-public class Game implements IGame {
+public class Game implements IGame { // TODO reprendre les fonctions du game de logic (end level et levelup) celle de logic appeleront celle de data
+
+    private int level; // Niveau de jeu
+    private Grid grid; // Grille du jeu
+
+    /**
+     * Constructeur de la classe.
+     */
+    public Game(int level) {
+        this.level = level;
+        this.grid = createLevel(level);
+    }
+
     /**
      * Lance le jeu.
      */
@@ -21,8 +33,8 @@ public class Game implements IGame {
      * Créer le niveau de jeu.
      */
     @Override
-    public void createLevel() {
-
+    public Grid createLevel(int level) {
+        return new Grid(level);
     }
 
     /**

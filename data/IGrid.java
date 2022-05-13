@@ -9,12 +9,6 @@ import adding.Tuple2;
 public interface IGrid {
 
     /**
-     * Retourne le jeu lié à la grille de jeu.
-     * @return le jeu
-     */
-    public Game getGame();
-
-    /**
      * Donne la position des murs sur la grille de jeu.
      * @param level le niveau de jeu
      * @return la position des murs

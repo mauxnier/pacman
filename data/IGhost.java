@@ -9,12 +9,6 @@ import adding.Tuple2;
 public interface IGhost {
 
     /**
-     * Retourne la grille de jeu lié au fantôme.
-     * @return la grille de jeu.
-     */
-    public Grid getGrid();
-
-    /**
      * Donne la position du fantôme sur la grille de jeu.
      * @return position du fantôme
      */

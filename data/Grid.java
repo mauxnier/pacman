@@ -3,13 +3,15 @@ package data;
 import adding.Tuple2;
 
 public class Grid implements IGrid {
+    Pacman pacman;
+    Fruit[] listeFruit;
+    Ghost[] listeGhost;
+
     /**
-     * Retourne le jeu lié à la grille de jeu.
-     * @return le jeu
+     * Constructeur de la classe.
      */
-    @Override
-    public Game getGame() {
-        return null;
+    public Grid() {
+
     }
 
     /**
