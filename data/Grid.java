@@ -2,87 +2,31 @@ package data;
 
 import adding.Tuple2;
 
+import java.util.List;
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvException;
+
 public class Grid implements IGrid {
-    Pacman pacman;
-    Fruit[] listeFruit;
-    Ghost[] listeGhost;
+    /** Constantes pour le jeu */
+    static final int GAME_SPEED = 1;
+    static final int PACMAN_LIVES = 3;
+    static final int PACMAN_POINTS = 0;
+
+    private int level;
+    private int speed;
+    private Pacman pacman;
+    private Fruit[] listeFruit;
+    private Ghost[] listeGhost;
 
     /**
      * Constructeur de la classe.
+     * @param level
      */
-    public Grid() {
-
-    }
-
-    /**
-     * Donne la position des murs sur la grille de jeu.
-     * @param level le niveau de jeu
-     * @return la position des murs
-     */
-    @Override
-    public Tuple2<Integer, Integer>[] getWallsPos(int level) {
-        return new Tuple2[0];
-    }
-
-    /**
-     * Donne la position initiale des fruits sur la grille de jeu.
-     * @param level le niveau de jeu
-     * @return position initiale des fruits
-     */
-    @Override
-    public Tuple2<Integer, Integer>[] getFruitsSpawnPos(int level) {
-        return new Tuple2[0];
-    }
-
-    /**
-     * Donne la position initiale des fantômes sur la grille de jeu.
-     * @param level le niveau de jeu
-     * @return position initiale du fantômes
-     */
-    @Override
-    public Tuple2<Integer, Integer> getGhostSpawnPos(int level) {
-        return null;
-    }
-
-    /**
-     * Donne la position initiale du pacman sur la grille de jeu.
-     * @param level le niveau de jeu
-     * @return position initiale du pacman
-     */
-    @Override
-    public Tuple2<Integer, Integer> getPacmanSpawnPos(int level) {
-        return null;
-    }
-
-    /**
-     * Met en place les murs pour le niveau de jeu.
-     */
-    @Override
-    public void placeWalls() {
-
-    }
-
-    /**
-     * Met en place les fruits pour le niveau de jeu.
-     */
-    @Override
-    public void placeFruits() {
-
-    }
-
-    /**
-     * Met en place les fantômes pour le niveau de jeu.
-     */
-    @Override
-    public void placeGhosts() {
-
-    }
-
-    /**
-     * Met en place pacman pour le niveau de jeu.
-     */
-    @Override
-    public void placePacman() {
+    public Grid(int level) {
+        this.level = level;
+        this.speed = GAME_SPEED;
+        loadLevel(level);
+        // this.pacman = new Pacman(x_pos, y_pos, PACMAN_LIVES, PACMAN_POINTS);
 
     }
 
@@ -94,5 +38,18 @@ public class Grid implements IGrid {
     @Override
     public boolean isPosAWall(Tuple2<Integer, Integer> coords) {
         return false;
+    }
+
+    /**
+     * Charge le niveau du jeu avec un des CSV du dossier src/
+     * @param level
+     * @return si le niveau est bien chargé
+     */
+    private boolean loadLevel(int level) {
+        try (CSVReader reader = new CSVReader(new FileReader("file.csv"))) {
+            List<String[]> r = reader.readAll();
+            r.forEach(x -> System.out.println(Arrays.toString(x)));
+        }
+        return true;
     }
 }
