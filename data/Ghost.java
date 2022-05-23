@@ -1,14 +1,13 @@
-package logic;
+package data;
 
 import adding.Tuple2;
-import data.IGhost;
 
 public class Ghost implements IGhost {
 
     /**
      * Constructeur de la classe.
      */
-    public Ghost(Grid grid) {
+    public Ghost() {
 
     }
 

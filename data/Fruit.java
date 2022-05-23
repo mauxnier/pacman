@@ -7,17 +7,8 @@ public class Fruit implements IFruit {
     /**
      * Constructeur de la classe.
      */
-    public Fruit(Grid grid) {
+    public Fruit() {
 
-    }
-
-    /**
-     * Retourne la grille de jeu lié au fruit.
-     * @return la grille de jeu.
-     */
-    @Override
-    public Grid getGrid() {
-        return null;
     }
 
     /**

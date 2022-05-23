@@ -1,19 +1,12 @@
 package data;
 
 import adding.Tuple2;
-import logic.Grid;
 
 /**
  * Interface de la classe Fruit de la couche Data.
  * Couche Data : donner l’état initial du jeu pour un niveau donné.
  */
 public interface IFruit {
-
-    /**
-     * Retourne la grille de jeu lié au fruit.
-     * @return la grille de jeu.
-     */
-    public Grid getGrid();
 
     /**
      * Donne la position du fruit sur la grille de jeu.
