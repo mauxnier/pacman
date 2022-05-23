@@ -5,14 +5,16 @@ import adding.Tuple2;
 public class Ghost implements IGhost {
 
     private Game game;
+    private Grid grid;
     private boolean alive;
-    private data.Ghost dataGhost;
+    data.Ghost dataGhost;
 
     /**
      * Constructeur de la classe.
      */
-    public Ghost(Game game, data.Ghost dataGhost) {
-        this.game = game;
+    public Ghost(Grid grid, data.Ghost dataGhost) {
+        this.grid = grid;
+        game = grid.game;
         alive = true;
         this.dataGhost = dataGhost;
 
@@ -35,7 +37,7 @@ public class Ghost implements IGhost {
             int distanceX = pacmanPosX - actualPosX;
             int distanceY = pacmanPosY - actualPosY;
 
-            if (game.pacman.getIsSuperpowered() == true){
+            if (game.pacman.isSuperpowered() == true){
                 distanceX *= -1;
                 distanceY *= -1;
             }
@@ -43,13 +45,13 @@ public class Ghost implements IGhost {
             if (Math.abs(distanceX) > Math.abs(distanceY)){
                 if (distanceX > 0){
                     newPos = new Tuple2<Integer,Integer>(actualPosX+1, actualPosY);
-                    if(!Grid.dataGrid.isPosAWall(newPos)){
+                    if(!grid.dataGrid.isPosAWall(newPos)){
                         dataGhost.setDirection("UP");
                     }
                 }
                 else {
                     newPos = new Tuple2<Integer,Integer>(actualPosX-1, actualPosY);
-                    if(!Grid.dataGrid.isPosAWall(newPos)){
+                    if(!grid.dataGrid.isPosAWall(newPos)){
                         dataGhost.setDirection("DOWN");
                     }        
                 }
@@ -57,13 +59,13 @@ public class Ghost implements IGhost {
             else {
                 if (distanceY > 0){
                     newPos = new Tuple2<Integer,Integer>(actualPosX, actualPosY+1);
-                    if(!Grid.dataGrid.isPosAWall(newPos)){
+                    if(!grid.dataGrid.isPosAWall(newPos)){
                         dataGhost.setDirection("RIGHT");
                     }
                 }
                 else {
                     newPos = new Tuple2<Integer,Integer>(actualPosX, actualPosY-1);
-                    if(!Grid.dataGrid.isPosAWall(newPos)){
+                    if(!grid.dataGrid.isPosAWall(newPos)){
                         dataGhost.setDirection("LEFT");
                     }  
                 }
@@ -90,7 +92,7 @@ public class Ghost implements IGhost {
 
     @Override
     public void eatPacman(Pacman eatedPacman){
-        if (eatedPacman.getIsSuperpowered()){
+        if (eatedPacman.isSuperpowered()){
             die();
         }
         else {

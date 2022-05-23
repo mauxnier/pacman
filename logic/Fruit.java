@@ -2,9 +2,9 @@ package logic;
 
 public class Fruit implements IFruit {
 
-    Game game;
+    private Game game;
     data.Fruit dataFruit;
-    boolean isEaten;
+    private boolean isEaten;
 
     /**
      * Constructeur de la classe.

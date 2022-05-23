@@ -1,4 +1,4 @@
-package logic;
+package data;
 
 import adding.Tuple2;
 import data.IGrid;
