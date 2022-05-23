@@ -2,9 +2,12 @@ package logic;
 
 public class Game implements IGame {
 
-    data.Game dataGame;
-    int points;
-    int level;
+    private data.Game dataGame;
+    Pacman pacman;
+
+
+    private int points;
+    private int level;
 
     /**
      * Constructeur de la classe.
@@ -13,15 +16,18 @@ public class Game implements IGame {
         points = 0;
         level = 1;
         this.dataGame = dataGame;
+        this.pacman = new Pacman(dataGame.getGrid().getPacman());
+
+
     }
 
     @Override
-    public void endLevel(){
+    public void endLevel(){ 
         level = 1;
     }
 
     @Override
-    public void levelUp(){
+    public void levelUp(){ 
         level++;
     }
 

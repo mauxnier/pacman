@@ -5,18 +5,20 @@ import adding.Tuple2;
 
 public class Pacman implements IPacman {
 
+    private Grid grid;
     private Game game;
-    private static data.Pacman dataPacman;
+    data.Pacman dataPacman;
     private int nbLives;
     private boolean isSuperpowered;
 
     /**
      * Constructeur de la classe.
      */
-    public Pacman(Game game, data.Pacman dataPacman) {
-        this.game = game;
+    public Pacman(Grid grid, data.Pacman dataPacman) {
+        this.grid = grid;
         this.nbLives = dataPacman.getLives();
         isSuperpowered = false;
+        game = grid.game;
 
     }
 
@@ -47,7 +49,7 @@ public class Pacman implements IPacman {
                 isCorrectDirection = false;
                 break;
         }
-        if (!Grid.dataGrid.isPosAWall(newPos) && isCorrectDirection){
+        if (!grid.dataGrid.isPosAWall(newPos) && isCorrectDirection){
             dataPacman.setDirection(direction);
         }
     }
@@ -98,7 +100,7 @@ public class Pacman implements IPacman {
 
     }
 
-    public boolean getIsSuperpowered(){
+    public boolean isSuperpowered(){
         return isSuperpowered;
     }
 

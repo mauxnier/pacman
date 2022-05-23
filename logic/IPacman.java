@@ -2,14 +2,14 @@ package logic;
 
 /**
  * Interface de la classe Pacman de la couche Logic.
- * Couche Logic : donner l’état du jeu en fonction d’une direction.
+ * Couche Logic : donner l'état du jeu en fonction d'une direction.
  */
 public interface IPacman {
 
     /**
      * Bouge le pacman.
      */
-    public void move();
+    public void move(String direction);
 
     /**
      * Mange un fruit.
@@ -49,5 +49,17 @@ public interface IPacman {
      * @return pacman sur un fruit
      */
     public boolean isOnFruit();
+
+    /**
+     * Retourne si le pacman a le pouvoir de manger les fantome.
+     * @return pacman avec pouvoir
+     */
+    public boolean isSuperpowered();
+
+    /**
+     * Retourne le nombre de vie restante de pacman.
+     * @return le nombre de vie de pacman
+     */
+    public int getNbLives();
 
 }

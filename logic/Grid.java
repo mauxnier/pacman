@@ -3,7 +3,7 @@ package logic;
 public class Grid implements IGrid {
 
     Game game;
-    int nbFruitsLeft;
+    private int nbFruitsLeft;
     data.Grid dataGrid;
 
     /**
@@ -12,6 +12,7 @@ public class Grid implements IGrid {
     public Grid(Game game, data.Grid dataGrid, int nbFruits) {
         this.game = game;
         nbFruitsLeft = nbFruits;
+        this.dataGrid = dataGrid;
     }
 
     @Override
