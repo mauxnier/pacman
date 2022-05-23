@@ -12,15 +12,6 @@ public class Ghost implements IGhost {
     }
 
     /**
-     * Retourne la grille de jeu lié au fantôme.
-     * @return la grille de jeu.
-     */
-    @Override
-    public Grid getGrid() {
-        return null;
-    }
-
-    /**
      * Donne la position du fantôme sur la grille de jeu.
      * @return position du fantôme
      */

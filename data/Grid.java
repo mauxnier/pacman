@@ -1,10 +1,8 @@
 package data;
 
 import adding.Tuple2;
-
+import adding.CSV;
 import java.util.List;
-import com.opencsv.CSVReader;
-import com.opencsv.exceptions.CsvException;
 
 public class Grid implements IGrid {
     /** Constantes pour le jeu */
@@ -46,10 +44,8 @@ public class Grid implements IGrid {
      * @return si le niveau est bien chargé
      */
     private boolean loadLevel(int level) {
-        try (CSVReader reader = new CSVReader(new FileReader("file.csv"))) {
-            List<String[]> r = reader.readAll();
-            r.forEach(x -> System.out.println(Arrays.toString(x)));
-        }
+        String fileName = "level_" + level + ".csv";
+        List<List<String>> data = CSV.getCSV(fileName);
         return true;
     }
 }
