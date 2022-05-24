@@ -6,15 +6,17 @@ import java.util.List;
 
 public class Grid implements IGrid {
     /** Constantes pour le jeu */
-    static final int GAME_SPEED = 1;
-    static final int PACMAN_LIVES = 3;
-    static final int PACMAN_POINTS = 0;
+    private static final int GAME_SPEED = 1;
+    private static final int PACMAN_LIVES = 3;
+    private static final int PACMAN_POINTS = 0;
 
+    /** Attributs de la grille */
     private int level;
     private int speed;
     private Pacman pacman;
-    private Fruit[] listeFruit;
-    private Ghost[] listeGhost;
+    private List<Wall> listeWall;
+    private List<Fruit> listeFruit;
+    private List<Ghost> listeGhost;
 
     /**
      * Constructeur de la classe.
@@ -44,8 +46,37 @@ public class Grid implements IGrid {
      * @return si le niveau est bien chargé
      */
     private boolean loadLevel(int level) {
-        String fileName = "level_" + level + ".csv";
+        String folderName = "data/src/";
+        String fileName = folderName + "level_" + level + ".csv";
         List<List<String>> data = CSV.getCSV(fileName);
+
+        /** Parcours de la liste de données */
+        for (int i = 0; i < data.size(); i++) {
+            List<String> line = data.get(i);
+            for (int j = 0; j < line.size(); j++) {
+                String block = line.get(j);
+                int x = j;
+                int y = i;
+
+                switch (block) {
+                    case "wall":
+                        this.listeWall.add(new Wall(x, y));
+                        break;
+                    case "fruit":
+                        this.listeFruit.add(new Fruit(x, y));
+                        break;
+                    case "superfruit":
+                        break;
+                    case "ghost":
+                        break;
+                    case "pacman":
+                        break
+                    default:
+                        break;
+                }
+            }
+        }
+        System.out.println(data);
         return true;
     }
 }

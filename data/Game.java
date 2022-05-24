@@ -1,5 +1,7 @@
 package data;
 
+import java.util.List;
+
 public class Game implements IGame { // TODO reprendre les fonctions du game de logic (end level et levelup) celle de logic appeleront celle de data
 
     private int level; // Niveau de jeu
@@ -78,7 +80,7 @@ public class Game implements IGame { // TODO reprendre les fonctions du game de 
      * @return fantômes
      */
     @Override
-    public Ghost[] getGhosts() {
+    public List<Ghost> getGhosts() {
         return new Ghost[0];
     }
 
@@ -87,7 +89,16 @@ public class Game implements IGame { // TODO reprendre les fonctions du game de 
      * @return fruits
      */
     @Override
-    public Fruit[] getFruits() {
+    public List<Fruit> getFruits() {
+        return new Fruit[0];
+    }
+
+    /**
+     * Retourne les fruits du jeu.
+     * @return fruits
+     */
+    @Override
+    public List<Wall> getWalls() {
         return new Fruit[0];
     }
 }
