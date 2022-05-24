@@ -4,7 +4,8 @@ import adding.Tuple2;
 
 public class Pacman implements IPacman {
 
-    private Tuple2<Integer, Integer> pos; // Position sur la grille
+    private int x; // Position en x dans le CSV
+    private int y; // Position en y dans le CSV
     private int lives; // Nombre de vies pour la partie
     private int points; // Nombre de points pour la partie
 
@@ -12,8 +13,8 @@ public class Pacman implements IPacman {
      * Constructeur de la classe.
      */
     public Pacman(int x, int y, int nbLives, int nbPoints) {
-        this.pos.setFirst(x);
-        this.pos.setSecond(y);
+        this.x = x;
+        this.y = y;
         this.lives = nbLives;
         this.points = nbPoints;
     }
@@ -24,7 +25,7 @@ public class Pacman implements IPacman {
      */
     @Override
     public Tuple2<Integer, Integer> getPos() {
-        return null;
+        return new Tuple2<Integer, Integer>(this.x, this.y);
     }
 
     /**
@@ -33,16 +34,15 @@ public class Pacman implements IPacman {
      */
     @Override
     public int getLives() {
-        return 0;
+        return this.lives;
     }
 
     /**
      * Donne le nombre de points accumulé par le pacman.
-     *
      * @return nombre de points
      */
     @Override
     public int getPoints() {
-        return 0;
+        return this.points;
     }
 }

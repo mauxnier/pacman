@@ -2,13 +2,30 @@ package data;
 
 import adding.Tuple2;
 
+import java.awt.*;
+import java.util.Random;
+
 public class Ghost implements IGhost {
+
+    /** Constantes */
+    private static final int GHOST_POINTS = 200; //TODO *2 pour chaque ghost mangé en plus
+    private static final String GHOST_NORMAL_BEHAVIOUR = "normal";
+    private static final String GHOST_DEFAULT_BEHAVIOUR = "normal";
+
+    /** Attributs */
+    private int x;
+    private int y;
+    private Color color;
+    private int points = GHOST_POINTS;
+    private String behaviour = GHOST_DEFAULT_BEHAVIOUR;
 
     /**
      * Constructeur de la classe.
      */
-    public Ghost() {
-
+    public Ghost(int x, int y) {
+        this.x = x;
+        this.y = y;
+        this.color = getRandomColor();
     }
 
     /**
@@ -17,7 +34,7 @@ public class Ghost implements IGhost {
      */
     @Override
     public Tuple2<Integer, Integer> getPos() {
-        return null;
+        return new Tuple2<Integer, Integer>(this.x, this.y);
     }
 
     /**
@@ -27,7 +44,7 @@ public class Ghost implements IGhost {
      */
     @Override
     public int getPoints() {
-        return 0;
+        return this.points;
     }
 
     /**
@@ -35,17 +52,8 @@ public class Ghost implements IGhost {
      * @return couleur du fantôme
      */
     @Override
-    public String getColor() {
-        return null;
-    }
-
-    /**
-     * Retourne la forme du fantôme.
-     * @return forme du fantôme
-     */
-    @Override
-    public String getShape() {
-        return null;
+    public Color getColor() {
+        return this.color;
     }
 
     /**
@@ -54,6 +62,16 @@ public class Ghost implements IGhost {
      */
     @Override
     public String getBehaviour() {
-        return null;
+        return this.behaviour;
+    }
+
+    /**
+     * Retourne une couleur aléatoire
+     * @return une couleur
+     */
+    private Color getRandomColor() {
+        Random rand = new Random();
+        Color randomColor = new Color(rand.nextFloat(), rand.nextFloat(), rand.nextFloat());
+        return randomColor.brighter();
     }
 }

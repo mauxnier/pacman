@@ -28,32 +28,8 @@ public interface IGame {
     public int getLevel();
 
     /**
-     * Donne la vitesse du niveau de jeu.
-     * @return vitesse du jeu
-     */
-    public int getSpeed();
-
-    /**
      * Retourne la grille du jeu.
      * @return grille du jeu
      */
     public Grid getGrid();
-
-    /**
-     * Retourne le pacman du jeu.
-     * @return pacman
-     */
-    public Pacman getPacman();
-
-    /**
-     * Retourne les fantômes du jeu.
-     * @return fantômes
-     */
-    public Ghost[] getGhosts();
-
-    /**
-     * Retourne les fruits du jeu.
-     * @return fruits
-     */
-    public Fruit[] getFruits();
 }

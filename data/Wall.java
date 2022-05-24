@@ -4,8 +4,8 @@ import adding.Tuple2;
 
 public class Wall implements IWall {
 
-    private int x; // position en x dans le CSV
-    private int y; // position en y dans le CSV
+    private int x; // Position en x dans le CSV
+    private int y; // Position en y dans le CSV
 
     /**
      * Constructeur de la classe.

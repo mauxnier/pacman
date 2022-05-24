@@ -45,16 +45,7 @@ public class Game implements IGame { // TODO reprendre les fonctions du game de 
      */
     @Override
     public int getLevel() {
-        return 0;
-    }
-
-    /**
-     * Donne la vitesse du niveau de jeu.
-     * @return vitesse du jeu
-     */
-    @Override
-    public int getSpeed() {
-        return 0;
+        return this.level;
     }
 
     /**
@@ -63,42 +54,6 @@ public class Game implements IGame { // TODO reprendre les fonctions du game de 
      */
     @Override
     public Grid getGrid() {
-        return null;
-    }
-
-    /**
-     * Retourne le pacman du jeu.
-     * @return pacman
-     */
-    @Override
-    public Pacman getPacman() {
-        return null;
-    }
-
-    /**
-     * Retourne les fantômes du jeu.
-     * @return fantômes
-     */
-    @Override
-    public List<Ghost> getGhosts() {
-        return new Ghost[0];
-    }
-
-    /**
-     * Retourne les fruits du jeu.
-     * @return fruits
-     */
-    @Override
-    public List<Fruit> getFruits() {
-        return new Fruit[0];
-    }
-
-    /**
-     * Retourne les fruits du jeu.
-     * @return fruits
-     */
-    @Override
-    public List<Wall> getWalls() {
-        return new Fruit[0];
+        return this.grid;
     }
 }

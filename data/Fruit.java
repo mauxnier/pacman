@@ -5,7 +5,8 @@ import adding.Tuple2;
 public class Fruit implements IFruit {
 
     /** Constantes */
-    private static final int GAME_SPEED = 1;
+    private static final int FRUIT_POINTS = 10;
+    private static final int SUPERFRUIT_POINTS = 50;
 
     /** Attributs */
     private int x; // position en x dans le CSV
@@ -38,7 +39,7 @@ public class Fruit implements IFruit {
      */
     @Override
     public String getType() {
-        return null;
+        return this.type;
     }
 
     /**
@@ -47,7 +48,7 @@ public class Fruit implements IFruit {
      */
     @Override
     public int getPoints() {
-        return 0;
+        return this.points;
     }
 
     /**
@@ -59,10 +60,10 @@ public class Fruit implements IFruit {
         int points = 0;
         switch (type) {
             case "fruit":
-                points = 10;
+                points = FRUIT_POINTS;
                 break;
             case "superfruit":
-                points = 50;
+                points = SUPERFRUIT_POINTS;
                 break;
         }
         return points;
