@@ -19,7 +19,7 @@ public interface IGame {
     /**
      * Créer le niveau de jeu.
      */
-    public Grid createLevel(int level);
+    public Grid createLevel();
 
     /**
      * Donne le niveau du jeu.

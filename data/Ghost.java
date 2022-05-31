@@ -10,14 +10,14 @@ public class Ghost implements IGhost {
     /** Constantes */
     private static final int GHOST_POINTS = 200; //TODO *2 pour chaque ghost mangé en plus
     private static final String GHOST_NORMAL_BEHAVIOUR = "normal";
-    private static final String GHOST_DEFAULT_BEHAVIOUR = "normal";
+    private static final String GHOST_CREEP_BEHAVIOUR = "creep";
 
     /** Attributs */
     private int x;
     private int y;
     private Color color;
     private int points = GHOST_POINTS;
-    private String behaviour = GHOST_DEFAULT_BEHAVIOUR;
+    private String behaviour = GHOST_NORMAL_BEHAVIOUR;
 
     /**
      * Constructeur de la classe.
@@ -63,6 +63,22 @@ public class Ghost implements IGhost {
     @Override
     public String getBehaviour() {
         return this.behaviour;
+    }
+
+    /**
+     * Change le comportement du fantôme en normal.
+     * @return void
+     */
+    public void setNormal() {
+        this.behaviour = GHOST_NORMAL_BEHAVIOUR;
+    }
+
+    /**
+     * Change le comportement du fantôme en creep.
+     * @return void
+     */
+    public void setCreep() {
+        this.behaviour = GHOST_CREEP_BEHAVIOUR;
     }
 
     /**

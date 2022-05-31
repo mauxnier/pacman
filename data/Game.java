@@ -12,7 +12,7 @@ public class Game implements IGame { // TODO reprendre les fonctions du game de 
      */
     public Game(int level) {
         this.level = level;
-        this.grid = createLevel(level);
+        this.grid = createLevel();
     }
 
     /**
@@ -35,8 +35,8 @@ public class Game implements IGame { // TODO reprendre les fonctions du game de 
      * Créer le niveau de jeu.
      */
     @Override
-    public Grid createLevel(int level) {
-        return new Grid(level);
+    public Grid createLevel() {
+        return new Grid(this.level);
     }
 
     /**

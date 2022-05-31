@@ -4,10 +4,15 @@ import adding.Tuple2;
 
 public class Pacman implements IPacman {
 
+    /** Constantes */
+    private static final boolean DEFAULT_SUPERPOWER = false;
+
+    /** Attributs */
     private int x; // Position en x dans le CSV
     private int y; // Position en y dans le CSV
     private int lives; // Nombre de vies pour la partie
     private int points; // Nombre de points pour la partie
+    private boolean superpower; // Si pacman a mangé un superfruit
 
     /**
      * Constructeur de la classe.
@@ -17,6 +22,7 @@ public class Pacman implements IPacman {
         this.y = y;
         this.lives = nbLives;
         this.points = nbPoints;
+        this.superpower = DEFAULT_SUPERPOWER;
     }
 
     /**

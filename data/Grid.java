@@ -21,9 +21,11 @@ public class Grid implements IGrid {
     private static final String PACMAN = "pacman";
 
     /** Attributs de la grille */
-    private int level;
-    private int speed;
-    private List<List<String>> data;
+    private int level; // Niveau du jeu
+    private int speed; // Rapidité du jeu
+    private int width; // Largeur de la grille
+    private int height; // Hauteur de la grille
+    private List<List<String>> data; // Données du CSV
     private Pacman pacman;
     private List<Wall> listeWall = new ArrayList<Wall>();
     private List<Fruit> listeFruit = new ArrayList<Fruit>();
@@ -36,7 +38,21 @@ public class Grid implements IGrid {
     public Grid(int level) {
         this.level = level;
         this.speed = GAME_SPEED;
-        loadLevel(level);
+        loadLevel();
+    }
+
+    /**
+     * Retourne le bloc à une coordonnée précise sur la grille.
+     * @param x position en x
+     * @param y position en y
+     * @return le type de block
+     */
+    public String getBlock(int x, int y) {
+        String block = null;
+        if (x < this.width && y < this.height) {
+            block = this.data.get(y).get(x);
+        }
+        return block;
     }
 
     /**
@@ -46,10 +62,10 @@ public class Grid implements IGrid {
      */
     @Override
     public boolean isPosAWall(Tuple2<Integer, Integer> coords) {
+        get
         return false;
     }
 
-    //TODO getBlock(int x, int y)
     //TODO isPosAFruit
     //TODO isPosAGhost
     //TODO isPosAPacman
@@ -111,14 +127,16 @@ public class Grid implements IGrid {
 
     /**
      * Charge le niveau du jeu avec un des CSV du dossier src/
-     * @param level
      * @return si le niveau est bien chargé
      */
-    private boolean loadLevel(int level) {
+    private boolean loadLevel() {
         String folderName = "data/src/";
-        String fileName = folderName + "level_" + level + ".csv";
+        String fileName = folderName + "level_" + this.level + ".csv";
         List<List<String>> data = CSV.getCSV(fileName);
         this.data = data;
+        // Largeur et hauteur pour un niveau carré
+        this.width = data.size();
+        this.height = data.get(0).size();
 
         /** Parcours de la liste de données */
         for (int i = 0; i < data.size(); i++) {
@@ -148,7 +166,7 @@ public class Grid implements IGrid {
                 }
             }
         }
-        System.out.println(data);
+        // System.out.println(data);
         return true;
     }
 }
