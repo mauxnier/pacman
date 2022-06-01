@@ -6,6 +6,8 @@ import java.util.List;
 /**
  * Interface de la classe Grid de la couche Data.
  * Couche Data : donner l’état initial du jeu pour un niveau donné.
+ * @author Killian Monnier
+ * @version 01/06/2022
  */
 public interface IGrid {
 

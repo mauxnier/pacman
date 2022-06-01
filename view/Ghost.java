@@ -1,11 +1,14 @@
 package view;
 
-public class GhostSkin {
+import view.src.Circle;
+import view.src.CompoundFigure;
+
+public class Ghost extends CompoundFigure {
 
     /** Tableau des figure composants le fantome */
     private Figure[] figures;
 
-    public GhostSkin(int size, int x, int y, String color) {
+    public Ghost(int size, int x, int y, String color) {
 
         int diametrehead=(int)(size);
         int heightbody=(int)(size/2.6);
@@ -16,7 +19,7 @@ public class GhostSkin {
         figures = new Figure[9];
 
         figures[0] = new ArcCircle(size,x,y,color,0,180); // head
-        figures[1] = new Rect(diametrehead,heightbody,x,y+diametrehead/2,color); // body
+        figures[1] = new Rectangle(diametrehead,heightbody,x,y+diametrehead/2,color); // body
 
         figures[2] = new ArcCircle(sizeleg,x,y+diametrehead/2+heightbody-sizeleg/2,color,180,180); // leg
         figures[3] = new ArcCircle(sizeleg,x+4*sizeleg,y+diametrehead/2+heightbody-sizeleg/2,color,180,180); // leg

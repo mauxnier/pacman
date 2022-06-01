@@ -1,5 +1,11 @@
 package data;
 
+/**
+ * Classe Pacman de la couche Data.
+ * Couche Data : donner l’état initial du jeu pour un niveau donné.
+ * @author Killian Monnier
+ * @version 01/06/2022
+ */
 public class Pacman extends Block implements IPacman {
 
     /** Constantes */

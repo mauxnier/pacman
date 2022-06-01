@@ -6,6 +6,12 @@ import adding.CSV;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe Grid de la couche Data.
+ * Couche Data : donner l’état initial du jeu pour un niveau donné.
+ * @author Killian Monnier
+ * @version 01/06/2022
+ */
 public class Grid implements IGrid {
 
     /** Constantes pour le jeu */

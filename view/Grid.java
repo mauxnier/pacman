@@ -1,6 +1,6 @@
 package view;
 
-public class MapGenerate {
+public class Grid {
 
     /** Tableau à deux dimension de figure contenant toute les figures de la map case par case */
     private Figure[][] theMap;

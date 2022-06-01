@@ -1,25 +1,16 @@
 package view;
 
-public class Gomme extends Figure {
+import view.src.Circle;
+import view.src.Figure;
+import view.src.Square;
+
+public class Fruit extends Circle {
 
     private Figure[] figures;
-    private boolean supra;
+    private boolean isSuperfruit;
     private static final String COLOR_WALK = "black";
     private static final String COLOR_GOM = "white";
     public static final int SCORE_GOMME = 10;
-
-    /**
-     * constructeur d'une case de jeu Gomme
-     * sans gomme
-     * @param  int size          la taille de la case
-     * @param  int x             la position absolue x
-     * @param  int y             la position absolue y
-     */
-    public Gomme(int size, int x, int y) {
-        super(size, size, x, y, "black");
-        this.figures = new Figure[2];
-        this.figures[0] = new Square(size, x, y, this.COLOR_WALK);
-    }
 
     /**
      * constructeur d'une case de jeu Gomme
@@ -30,8 +21,10 @@ public class Gomme extends Figure {
      * @param  int y             la position absolue y
      * @param  boolean supra     determine si l'objet est une superGomme
      */
-    public Gomme(int size, int x, int y, boolean supra) {
-        this(size, x, y);
+    public Fruit(int size, int x, int y, boolean supra) {
+        super(size, size, x, y, "black");
+        this.figures = new Figure[2];
+        this.figures[0] = new Square(size, x, y, this.COLOR_WALK);
 
         this.supra = supra;
         int sg = size;

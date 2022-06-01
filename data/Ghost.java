@@ -1,10 +1,14 @@
 package data;
 
-import adding.Tuple2;
-
 import java.awt.*;
 import java.util.Random;
 
+/**
+ * Classe Ghost de la couche Data.
+ * Couche Data : donner l’état initial du jeu pour un niveau donné.
+ * @author Killian Monnier
+ * @version 01/06/2022
+ */
 public class Ghost extends Block implements IGhost {
 
     /** Constantes */
