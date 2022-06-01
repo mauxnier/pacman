@@ -1,7 +1,6 @@
 package data;
 
-import adding.Tuple2;
-
+import adding.Pos;
 import java.util.List;
 
 /**
@@ -12,10 +11,10 @@ public interface IGrid {
 
     /**
      * Donne si la position donnée en paramètre correspond à un mur.
-     * @param coords couple (x, y) correspondant à la position dans la grille de jeu.
+     * @param pos couple (x, y) correspondant à la position dans la grille de jeu.
      * @return si la position correspond à un mur
      */
-    public boolean isPosAWall(Tuple2<Integer, Integer> coords);
+    public boolean isPosAWall(Pos pos);
 
     /**
      * Donne le niveau du jeu.

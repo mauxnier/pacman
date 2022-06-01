@@ -1,37 +1,29 @@
 package data;
 
-import adding.Tuple2;
-
-public class Pacman implements IPacman {
+public class Pacman extends Block implements IPacman {
 
     /** Constantes */
-    private static final boolean DEFAULT_SUPERPOWER = false;
+    private static final boolean DEFAULT_SUPERPOWER = false; // Si pacman peut manger les fantômes
+    private static final int DEFAULT_LIVES = 3; // Vies de base du pacman
+    private static final int DEFAULT_POINTS = 0; // Points de base du pacman
+    private static final int DEFAULT_POWER_DURATION = 10; // Durée du pouvoir de pacman en seconde après avoir mangé le superfruit //TODO pour les niveaux supérieurs le temps doit s'écourter
 
     /** Attributs */
-    private int x; // Position en x dans le CSV
-    private int y; // Position en y dans le CSV
     private int lives; // Nombre de vies pour la partie
     private int points; // Nombre de points pour la partie
     private boolean superpower; // Si pacman a mangé un superfruit
 
     /**
      * Constructeur de la classe.
+     * @param name nom du bloc pacman dans le CSV
+     * @param x position dans le CSV
+     * @param y position dans le CSV
      */
-    public Pacman(int x, int y, int nbLives, int nbPoints) {
-        this.x = x;
-        this.y = y;
-        this.lives = nbLives;
-        this.points = nbPoints;
+    public Pacman(String name, int x, int y) {
+        super(name, x, y);
+        this.lives = DEFAULT_LIVES;
+        this.points = DEFAULT_POINTS;
         this.superpower = DEFAULT_SUPERPOWER;
-    }
-
-    /**
-     * Donne la position du pacman sur la grille de jeu.
-     * @return position du pacman
-     */
-    @Override
-    public Tuple2<Integer, Integer> getPos() {
-        return new Tuple2<Integer, Integer>(this.x, this.y);
     }
 
     /**

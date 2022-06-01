@@ -7,19 +7,9 @@ package data;
 public interface IGame {
 
     /**
-     * Lance le jeu.
-     */
-    public void start();
-
-    /**
      * Stop le jeu.
      */
     public void over();
-
-    /**
-     * Créer le niveau de jeu.
-     */
-    public Grid createLevel();
 
     /**
      * Donne le niveau du jeu.

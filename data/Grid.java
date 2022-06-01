@@ -1,6 +1,6 @@
 package data;
 
-import adding.Tuple2;
+import adding.Pos;
 import adding.CSV;
 
 import java.util.ArrayList;
@@ -9,16 +9,13 @@ import java.util.List;
 public class Grid implements IGrid {
 
     /** Constantes pour le jeu */
+    public static final String WALL = "wall";
+    public static final String FRUIT = "fruit";
+    public static final String SUPERFRUIT = "superfruit";
+    public static final String GHOST = "ghost";
+    public static final String PACMAN = "pacman";
+
     private static final int GAME_SPEED = 1; // Vitesse du jeu
-    private static final int PACMAN_LIVES = 3; // Vies de base du pacman
-    private static final int PACMAN_POINTS = 0; // Points de base du pacman
-    private static final int PACMAN_POWER_DURATION = 10; // Durée du pouvoir de pacman en seconde après avoir mangé le superfruit
-    //TODO pour les niveaux supérieurs le temps doit s'écourter
-    private static final String WALL = "wall";
-    private static final String FRUIT = "fruit";
-    private static final String SUPERFRUIT = "superfruit";
-    private static final String GHOST = "ghost";
-    private static final String PACMAN = "pacman";
 
     /** Attributs de la grille */
     private int level; // Niveau du jeu
@@ -42,11 +39,23 @@ public class Grid implements IGrid {
     }
 
     /**
+     * Ajoute un bloc sur une position dans la grille.
+     * @param block élément
+     * @param pos nouvelle position de l'élément
+     */
+    public void setBlock(Block block, Pos pos) {
+        this.data.get(pos.getY()).set(pos.getX(), block.getName());
+    }
+
+    /**
      * Retourne le bloc à une coordonnée précise sur la grille.
      * @param pos position x et y
      * @return le type de block
      */
-    public String getBlock(Tuple2<Integer, Integer> pos) {
+    public String getBlock(Pos pos) {
+        int x = pos.getX();
+        int y = pos.getY();
+
         String block = null;
         if (x < this.width && y < this.height) {
             block = this.data.get(y).get(x);
@@ -56,19 +65,64 @@ public class Grid implements IGrid {
 
     /**
      * Donne si la position donnée en paramètre correspond à un mur.
-     * @param coords couple (x, y) correspondant à la position dans la grille de jeu.
+     * @param pos couple (x, y) correspondant à la position dans la grille de jeu.
      * @return si la position correspond à un mur
      */
     @Override
-    public boolean isPosAWall(Tuple2<Integer, Integer> coords) {
-        get
-        return false;
+    public boolean isPosAWall(Pos pos) {
+        boolean isPosAWall = false;
+        String block = getBlock(pos);
+        if (block == WALL) isPosAWall = true;
+        return isPosAWall;
     }
 
-    //TODO isPosAFruit
-    //TODO isPosAGhost
-    //TODO isPosAPacman
+    /**
+     * Donne si la position donnée en paramètre correspond à un fruit.
+     * @param pos couple (x, y) correspondant à la position dans la grille de jeu.
+     * @return si la position correspond à un fruit
+     */
+    public boolean isPosAFruit(Pos pos) {
+        boolean isPosAWall = false;
+        String block = getBlock(pos);
+        if (block == FRUIT) isPosAWall = true;
+        return isPosAWall;
+    }
 
+    /**
+     * Donne si la position donnée en paramètre correspond à un superfruit.
+     * @param pos couple (x, y) correspondant à la position dans la grille de jeu.
+     * @return si la position correspond à un superfruit
+     */
+    public boolean isPosASuperfruit(Pos pos) {
+        boolean isPosAWall = false;
+        String block = getBlock(pos);
+        if (block == SUPERFRUIT) isPosAWall = true;
+        return isPosAWall;
+    }
+
+    /**
+     * Donne si la position donnée en paramètre correspond à un ghost.
+     * @param pos couple (x, y) correspondant à la position dans la grille de jeu.
+     * @return si la position correspond à un ghost
+     */
+    public boolean isPosAGhost(Pos pos) {
+        boolean isPosAWall = false;
+        String block = getBlock(pos);
+        if (block == GHOST) isPosAWall = true;
+        return isPosAWall;
+    }
+
+    /**
+     * Donne si la position donnée en paramètre correspond à un pacman.
+     * @param pos couple (x, y) correspondant à la position dans la grille de jeu.
+     * @return si la position correspond à un pacman
+     */
+    public boolean isPosAPacman(Pos pos) {
+        boolean isPosAWall = false;
+        String block = getBlock(pos);
+        if (block == PACMAN) isPosAWall = true;
+        return isPosAWall;
+    }
 
     /**
      * Donne le niveau du jeu.
@@ -147,17 +201,17 @@ public class Grid implements IGrid {
 
                 switch (block) {
                     case WALL:
-                        this.listeWall.add(new Wall(x, y));
+                        this.listeWall.add(new Wall(WALL, x, y));
                         break;
                     case FRUIT:
                     case SUPERFRUIT:
-                        this.listeFruit.add(new Fruit(x, y, block));
+                        this.listeFruit.add(new Fruit(FRUIT, x, y, block));
                         break;
                     case GHOST:
-                        this.listeGhost.add(new Ghost(x, y));
+                        this.listeGhost.add(new Ghost(GHOST, x, y));
                         break;
                     case PACMAN:
-                        this.pacman = new Pacman(x, y, PACMAN_LIVES, PACMAN_POINTS);
+                        this.pacman = new Pacman(PACMAN, x, y);
                         break;
                     default:
                         System.out.println("Block inconnu : " + block);

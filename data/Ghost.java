@@ -5,36 +5,29 @@ import adding.Tuple2;
 import java.awt.*;
 import java.util.Random;
 
-public class Ghost implements IGhost {
+public class Ghost extends Block implements IGhost {
 
     /** Constantes */
-    private static final int GHOST_POINTS = 200; //TODO *2 pour chaque ghost mangé en plus
+    private static final int GHOST_POINTS = 200; //TODO x2 pour chaque ghost mangé en plus
     private static final String GHOST_NORMAL_BEHAVIOUR = "normal";
     private static final String GHOST_CREEP_BEHAVIOUR = "creep";
 
     /** Attributs */
-    private int x;
-    private int y;
-    private Color color;
-    private int points = GHOST_POINTS;
-    private String behaviour = GHOST_NORMAL_BEHAVIOUR;
+    private Color color; // Couleur du fantôme
+    private int points; // Points que vaut le fantôme quand mangé par pacman
+    private String behaviour; // Comportement du fantôme en fonction de si pacman a mangé un superfruit
 
     /**
      * Constructeur de la classe.
+     * @param name nom du bloc fantôme dans le CSV
+     * @param x position dans le CSV
+     * @param y position dans le CSV
      */
-    public Ghost(int x, int y) {
-        this.x = x;
-        this.y = y;
+    public Ghost(String name, int x, int y) {
+        super(name, x, y);
         this.color = getRandomColor();
-    }
-
-    /**
-     * Donne la position du fantôme sur la grille de jeu.
-     * @return position du fantôme
-     */
-    @Override
-    public Tuple2<Integer, Integer> getPos() {
-        return new Tuple2<Integer, Integer>(this.x, this.y);
+        this.points = GHOST_POINTS;
+        this.behaviour = GHOST_NORMAL_BEHAVIOUR;
     }
 
     /**
@@ -67,7 +60,6 @@ public class Ghost implements IGhost {
 
     /**
      * Change le comportement du fantôme en normal.
-     * @return void
      */
     public void setNormal() {
         this.behaviour = GHOST_NORMAL_BEHAVIOUR;
@@ -75,7 +67,6 @@ public class Ghost implements IGhost {
 
     /**
      * Change le comportement du fantôme en creep.
-     * @return void
      */
     public void setCreep() {
         this.behaviour = GHOST_CREEP_BEHAVIOUR;

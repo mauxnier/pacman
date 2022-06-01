@@ -1,8 +1,6 @@
 package data;
 
-import java.util.List;
-
-public class Game implements IGame { // TODO reprendre les fonctions du game de logic (end level et levelup) celle de logic appeleront celle de data
+public class Game implements IGame {
 
     private int level; // Niveau de jeu
     private Grid grid; // Grille du jeu
@@ -12,15 +10,7 @@ public class Game implements IGame { // TODO reprendre les fonctions du game de 
      */
     public Game(int level) {
         this.level = level;
-        this.grid = createLevel();
-    }
-
-    /**
-     * Lance le jeu.
-     */
-    @Override
-    public void start() {
-
+        this.grid = createLevel(level);
     }
 
     /**
@@ -32,10 +22,18 @@ public class Game implements IGame { // TODO reprendre les fonctions du game de 
     }
 
     /**
-     * Créer le niveau de jeu.
+     * Monte d'un niveau supérieur la grille liée au jeu.
      */
-    @Override
-    public Grid createLevel() {
+    public void levelUp() {
+        this.level += 1;
+        this.grid = createLevel(this.level);
+    }
+
+    /**
+     * Créer une grille de jeu en fonction d'un niveau.
+     * @param level Niveau du jeu
+     */
+    private Grid createLevel(int level) {
         return new Grid(this.level);
     }
 
