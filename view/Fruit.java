@@ -2,56 +2,75 @@ package view;
 
 import view.src.Circle;
 import view.src.Figure;
-import view.src.Square;
 
+import java.awt.*;
+
+/**
+ * Classe Fruit de la couche View.
+ * Couche View : affiche le nouvel état du jeu à chaque “pas de jeu”.
+ * @author Killian Monnier
+ * @version 01/06/2022
+ */
 public class Fruit extends Circle {
 
-    private Figure[] figures;
+    /** Constantes */
+    private static final Color FRUIT_COLOR = Color.WHITE;
+    private static final Color FLOOR_COLOR = Color.BLACK;
+
+    /** Attributs */
     private boolean isSuperfruit;
-    private static final String COLOR_WALK = "black";
-    private static final String COLOR_GOM = "white";
-    public static final int SCORE_GOMME = 10;
 
     /**
-     * constructeur d'une case de jeu Gomme
-     * avec une gomme pouvant etre une supraGomme
-     * parametre supra true si est une supragomme
-     * @param  int size          la taille de la case
-     * @param  int x             la position absolue x
-     * @param  int y             la position absolue y
-     * @param  boolean supra     determine si l'objet est une superGomme
+     * Calcul et renvoie la taille d'un fruit.
+     * @param isSuperfruit
+     * @param sizeBlock
+     * @return la taille d'un fruit
      */
-    public Fruit(int size, int x, int y, boolean supra) {
-        super(size, size, x, y, "black");
-        this.figures = new Figure[2];
-        this.figures[0] = new Square(size, x, y, this.COLOR_WALK);
-
-        this.supra = supra;
-        int sg = size;
-        if (this.supra) {
-            sg = size/2;
+    private static int getSize(boolean isSuperfruit, int sizeBlock) {
+        int sizeFruit;
+        if (isSuperfruit) {
+            sizeFruit = sizeBlock/2;
         } else {
-            sg = size/5;
+            sizeFruit = sizeBlock/5;
         }
-        int xg = x+(size/2)-(sg/2);
-        int yg = y+(size/2)-(sg/2);
-        this.figures[1] = new Circle(sg, xg, yg, this.COLOR_GOM);
+        return sizeFruit;
     }
 
     /**
-     * place une gomme sur la case
-     * @param Circle c objet formant une gomme
+     * Retourne la position x du centre du fruit.
+     * @param isSuperfruit
+     * @param x
+     * @param sizeBlock
+     * @return la position x
      */
-    public void setGomme (Circle c) {
-        this.figures[1] = c;
+    private static int getXcentre(boolean isSuperfruit, int x, int sizeBlock) {
+        int sizeFruit = getSize(isSuperfruit, sizeBlock);
+        int xg = x + (sizeBlock/2) - (sizeFruit/2);
+        return xg;
     }
 
     /**
-     * retourne la gomme presente ou non sur la case
-     * @return l'objet Circle si exist sinon NULL
+     * Retourne la position y du centre du fruit.
+     * @param isSuperfruit
+     * @param y
+     * @param sizeBlock
+     * @return la position y
      */
-    public Figure getGomme () {
-        return this.figures[1];
+    private static int getYcentre(boolean isSuperfruit, int y, int sizeBlock) {
+        int sizeFruit = getSize(isSuperfruit, sizeBlock);
+        int yg = y + (sizeBlock/2) - (sizeFruit/2);
+        return yg;
+    }
+
+    /**
+     * Constructeur d'un fruit.
+     * @param sizeBlock la taille du bloc
+     * @param x la position absolue x
+     * @param y la position absolue y
+     * @param isSuperfruit si le fruit est un superfruit
+     */
+    public Fruit(int sizeBlock, int x, int y, boolean isSuperfruit) {
+        super(getSize(isSuperfruit, sizeBlock), getXcentre(isSuperfruit, x, sizeBlock), getYcentre(isSuperfruit, y, sizeBlock), FRUIT_COLOR);
     }
 
     public boolean getSupra() {

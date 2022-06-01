@@ -2,7 +2,14 @@ package view;
 
 import view.src.Circle;
 import view.src.CompoundFigure;
+import view.src.Figure;
 
+/**
+ * Classe Ghost de la couche View.
+ * Couche View : affiche le nouvel état du jeu à chaque “pas de jeu”.
+ * @author Killian Monnier
+ * @version 01/06/2022
+ */
 public class Ghost extends CompoundFigure {
 
     /** Tableau des figure composants le fantome */
