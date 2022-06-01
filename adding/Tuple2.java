@@ -8,27 +8,27 @@ package adding;
  */
 public class Tuple2<K, V> {
 
-    private K x;
-    private V y;
+    private K first;
+    private V second;
 
-    public Tuple2(K x, V y){
-        this.x = x;
-        this.y = y;
+    public Tuple2(K first, V second){
+        this.first = first;
+        this.second = second;
     }
 
-    public K getX() {
-        return x;
+    public K getFirst() {
+        return first;
     }
 
-    public void setX(K first) {
-        this.x = x;
+    public void setFirst(K first) {
+        this.first = first;
     }
 
-    public V getY() {
-        return y;
+    public V getSecond() {
+        return second;
     }
 
-    public void setY(V y) {
-        this.y = y;
+    public void setSecond(V second) {
+        this.second = second;
     }
 }

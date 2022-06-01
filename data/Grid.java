@@ -43,11 +43,10 @@ public class Grid implements IGrid {
 
     /**
      * Retourne le bloc à une coordonnée précise sur la grille.
-     * @param x position en x
-     * @param y position en y
+     * @param pos position x et y
      * @return le type de block
      */
-    public String getBlock(int x, int y) {
+    public String getBlock(Tuple2<Integer, Integer> pos) {
         String block = null;
         if (x < this.width && y < this.height) {
             block = this.data.get(y).get(x);
