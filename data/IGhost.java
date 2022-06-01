@@ -2,6 +2,8 @@ package data;
 
 import adding.Tuple2;
 
+import java.awt.*;
+
 /**
  * Interface de la classe Ghost de la couche Data.
  * Couche Data : donner l’état initial du jeu pour un niveau donné.
@@ -25,13 +27,7 @@ public interface IGhost {
      * Donne la couleur du fantôme.
      * @return couleur du fantôme
      */
-    public String getColor();
-
-    /**
-     * Retourne la forme du fantôme.
-     * @return forme du fantôme
-     */
-    public String getShape();
+    public Color getColor();
 
     /**
      * Retourne le comportement du fantôme.

@@ -9,12 +9,6 @@ import adding.Tuple2;
 public interface IPacman {
 
     /**
-     * Donne la position du pacman sur la grille de jeu.
-     * @return position du pacman
-     */
-    public Tuple2<Integer, Integer> getPos();
-
-    /**
      * Donne le nombre de vie restant pour le pacman.
      * @return nombre de vie
      */

@@ -2,31 +2,32 @@ package data;
 
 import adding.Tuple2;
 
-public class Ghost implements IGhost {
+import java.awt.*;
+import java.util.Random;
+
+public class Ghost extends Block implements IGhost {
+
+    /** Constantes */
+    private static final int GHOST_POINTS = 200; //TODO x2 pour chaque ghost mangé en plus
+    private static final String GHOST_NORMAL_BEHAVIOUR = "normal";
+    private static final String GHOST_CREEP_BEHAVIOUR = "creep";
+
+    /** Attributs */
+    private Color color; // Couleur du fantôme
+    private int points; // Points que vaut le fantôme quand mangé par pacman
+    private String behaviour; // Comportement du fantôme en fonction de si pacman a mangé un superfruit
 
     /**
      * Constructeur de la classe.
+     * @param name nom du bloc fantôme dans le CSV
+     * @param x position dans le CSV
+     * @param y position dans le CSV
      */
-    public Ghost() {
-
-    }
-
-    /**
-     * Retourne la grille de jeu lié au fantôme.
-     * @return la grille de jeu.
-     */
-    @Override
-    public Grid getGrid() {
-        return null;
-    }
-
-    /**
-     * Donne la position du fantôme sur la grille de jeu.
-     * @return position du fantôme
-     */
-    @Override
-    public Tuple2<Integer, Integer> getPos() {
-        return null;
+    public Ghost(String name, int x, int y) {
+        super(name, x, y);
+        this.color = getRandomColor();
+        this.points = GHOST_POINTS;
+        this.behaviour = GHOST_NORMAL_BEHAVIOUR;
     }
 
     /**
@@ -36,7 +37,7 @@ public class Ghost implements IGhost {
      */
     @Override
     public int getPoints() {
-        return 0;
+        return this.points;
     }
 
     /**
@@ -44,17 +45,8 @@ public class Ghost implements IGhost {
      * @return couleur du fantôme
      */
     @Override
-    public String getColor() {
-        return null;
-    }
-
-    /**
-     * Retourne la forme du fantôme.
-     * @return forme du fantôme
-     */
-    @Override
-    public String getShape() {
-        return null;
+    public Color getColor() {
+        return this.color;
     }
 
     /**
@@ -63,6 +55,30 @@ public class Ghost implements IGhost {
      */
     @Override
     public String getBehaviour() {
-        return null;
+        return this.behaviour;
+    }
+
+    /**
+     * Change le comportement du fantôme en normal.
+     */
+    public void setNormal() {
+        this.behaviour = GHOST_NORMAL_BEHAVIOUR;
+    }
+
+    /**
+     * Change le comportement du fantôme en creep.
+     */
+    public void setCreep() {
+        this.behaviour = GHOST_CREEP_BEHAVIOUR;
+    }
+
+    /**
+     * Retourne une couleur aléatoire
+     * @return une couleur
+     */
+    private Color getRandomColor() {
+        Random rand = new Random();
+        Color randomColor = new Color(rand.nextFloat(), rand.nextFloat(), rand.nextFloat());
+        return randomColor.brighter();
     }
 }
