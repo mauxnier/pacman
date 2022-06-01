@@ -40,10 +40,10 @@ public class Grid implements IGrid {
 
     /**
      * Ajoute un bloc sur une position dans la grille.
-     * @param block élément
-     * @param pos nouvelle position de l'élément
+     * @param block élément à placer sur la grille
      */
-    public void setBlock(Block block, Pos pos) {
+    public void setBlock(Block block) {
+        Pos pos = block.getPos();
         this.data.get(pos.getY()).set(pos.getX(), block.getName());
     }
 
