@@ -1,6 +1,12 @@
 package logic;
 
-import adding.Tuple2;
+import adding.Pos;
+
+import static logic.Grid.PACMAN;
+import static logic.Grid.GHOST;
+import static logic.Grid.WALL;
+import static logic.Grid.FRUIT;
+import static logic.Grid.SUPERFRUIT;
 
 /**
  * Classe Pacman de la couche Logic.
@@ -26,31 +32,43 @@ public class Pacman extends Block implements IPacman {
         this.isSuperpowered = dataPacman.getIsSuperpowered();
     }
 
+    /**
+     * Déplace le pacman.
+     * @param direction
+     */
     @Override
-    public void move(String direction){
-        boolean isCorrectDirection = true;
-        Tuple2<Integer, Integer> newPos;
-        int actualPosX = dataPacman.getPos().getFirst();
-        int actualPosY = dataPacman.getPos().getSecond();
-        switch(direction){
+    public void move(String direction) {
+        int actualPosX = this.getPos().getX();
+        int actualPosY = this.getPos().getY();
+        int newPosX;
+        int newPosY;
+
+        switch (direction) {
             case "UP": 
-                newPos = new Tuple2<Integer,Integer>(actualPosX+1, actualPosY);
+                newPosX = actualPosX;
+                newPosY = actualPosY - 1;
+                this.canMove(newPosX, newPosY);
                 break;
         
             case "DOWN":
-                newPos = new Tuple2<Integer,Integer>(actualPosX-1, actualPosY);
+                newPosX = actualPosX;
+                newPosY = actualPosY + 1;
+                this.canMove(newPosX, newPosY);
                 break;
         
             case "RIGHT":
-                newPos = new Tuple2<Integer,Integer>(actualPosX, actualPosY+1);
+                newPosX = actualPosX + 1;
+                newPosY = actualPosY;
+                this.canMove(newPosX, newPosY);
                 break;
 
             case "LEFT":
-                newPos = new Tuple2<Integer,Integer>(actualPosX, actualPosY-1);
+                newPosX = actualPosX - 1;
+                newPosY = actualPosY;
+                this.canMove(newPosX, newPosY);
                 break;
             default:
                 System.out.println("Direction incorrecte");
-                isCorrectDirection = false;
                 break;
         }
         if (!grid.dataGrid.isPosAWall(newPos) && isCorrectDirection){
@@ -134,5 +152,38 @@ public class Pacman extends Block implements IPacman {
      */
     public void addPoints(int points){
         this.points += points;
+    }
+
+    /**
+     * Permet de savoir comment bouge le pacman.
+     * @param newPosX position sur la grille
+     * @param newPosY position sur la grille
+     * @return
+     */
+    private boolean canMove(int newPosX, int newPosY) {
+        boolean canMove = false;
+        String block = this.getGrid().getBlock(new Pos(newPosX, newPosY));
+
+        switch (block) {
+            case WALL:
+            case PACMAN:
+                /** Bloqué */
+                canMove = false;
+                break;
+            case FRUIT:
+            case SUPERFRUIT:
+                /** Peut bouger et manger */
+                canMove = true;
+                eatFruit(get);
+                break;
+            case GHOST:
+                /** Peut bouger et manger ou se fait manger */
+                break;
+            default:
+                /** Peut bouger */
+                canMove = true;
+                break;
+        }
+        return canMove;
     }
 }

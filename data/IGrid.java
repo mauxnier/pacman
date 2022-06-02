@@ -1,6 +1,5 @@
 package data;
 
-import adding.Pos;
 import java.util.List;
 
 /**
@@ -10,13 +9,6 @@ import java.util.List;
  * @version 01/06/2022
  */
 public interface IGrid {
-
-    /**
-     * Donne si la position donnée en paramètre correspond à un mur.
-     * @param pos couple (x, y) correspondant à la position dans la grille de jeu.
-     * @return si la position correspond à un mur
-     */
-    public boolean isPosAWall(Pos pos);
 
     /**
      * Donne le niveau du jeu.

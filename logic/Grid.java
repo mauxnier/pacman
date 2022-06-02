@@ -1,5 +1,8 @@
 package logic;
 
+import adding.Pos;
+import data.Block;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,9 +14,20 @@ import java.util.List;
  */
 public class Grid implements IGrid {
 
+    /** Constantes pour le jeu */
+    public static final String WALL = data.Grid.WALL;
+    public static final String FRUIT = data.Grid.FRUIT;
+    public static final String SUPERFRUIT = data.Grid.SUPERFRUIT;
+    public static final String GHOST = data.Grid.GHOST;
+    public static final String PACMAN = data.Grid.PACMAN;
+    public static final int GAME_SPEED = 1; // Vitesse du jeu
+
+    /** Attributs */
     private data.Grid dataGrid;
     private int level; // Niveau du jeu
     private int speed; // Rapidité du jeu
+    private int width; // Largeur de la grille
+    private int height; // Hauteur de la grille
     private List<List<String>> board; // Position des blocs dans le jeu
     private Pacman pacman;
     private List<Wall> listeWall = new ArrayList<Wall>();
@@ -26,6 +40,8 @@ public class Grid implements IGrid {
      */
     public Grid(data.Grid dataGrid) {
         this.dataGrid = dataGrid;
+        this.width = this.dataGrid.getWidth();
+        this.height = this.dataGrid.getHeight();
         this.level = this.dataGrid.getLevel();
         this.speed = this.dataGrid.getSpeed();
 
@@ -46,6 +62,92 @@ public class Grid implements IGrid {
         for (data.Ghost dataGhost : this.dataGrid.getGhosts()) {
             listeGhost.add(new Ghost(dataGhost, this));
         }
+    }
+
+    /**
+     * Ajoute un bloc sur une position dans la grille.
+     * @param block élément à placer sur la grille
+     */
+    public void setBlock(Block block) {
+        Pos pos = block.getPos();
+        this.board.get(pos.getY()).set(pos.getX(), block.getName());
+    }
+
+    /**
+     * Retourne le bloc à une coordonnée précise sur la grille.
+     * @param pos position x et y
+     * @return le type de block
+     */
+    public String getBlock(Pos pos) {
+        int x = pos.getX();
+        int y = pos.getY();
+
+        String block = null;
+        if (x < this.width && y < this.height) {
+            block = this.board.get(y).get(x);
+        }
+        return block;
+    }
+
+    /**
+     * Donne si la position donnée en paramètre correspond à un mur.
+     * @param pos couple (x, y) correspondant à la position dans la grille de jeu.
+     * @return si la position correspond à un mur
+     */
+    @Override
+    public boolean isPosAWall(Pos pos) {
+        boolean isPosAWall = false;
+        String block = getBlock(pos);
+        if (block == WALL) isPosAWall = true;
+        return isPosAWall;
+    }
+
+    /**
+     * Donne si la position donnée en paramètre correspond à un fruit.
+     * @param pos couple (x, y) correspondant à la position dans la grille de jeu.
+     * @return si la position correspond à un fruit
+     */
+    public boolean isPosAFruit(Pos pos) {
+        boolean isPosAWall = false;
+        String block = getBlock(pos);
+        if (block == FRUIT) isPosAWall = true;
+        return isPosAWall;
+    }
+
+    /**
+     * Donne si la position donnée en paramètre correspond à un superfruit.
+     * @param pos couple (x, y) correspondant à la position dans la grille de jeu.
+     * @return si la position correspond à un superfruit
+     */
+    public boolean isPosASuperfruit(Pos pos) {
+        boolean isPosAWall = false;
+        String block = getBlock(pos);
+        if (block == SUPERFRUIT) isPosAWall = true;
+        return isPosAWall;
+    }
+
+    /**
+     * Donne si la position donnée en paramètre correspond à un ghost.
+     * @param pos couple (x, y) correspondant à la position dans la grille de jeu.
+     * @return si la position correspond à un ghost
+     */
+    public boolean isPosAGhost(Pos pos) {
+        boolean isPosAWall = false;
+        String block = getBlock(pos);
+        if (block == GHOST) isPosAWall = true;
+        return isPosAWall;
+    }
+
+    /**
+     * Donne si la position donnée en paramètre correspond à un pacman.
+     * @param pos couple (x, y) correspondant à la position dans la grille de jeu.
+     * @return si la position correspond à un pacman
+     */
+    public boolean isPosAPacman(Pos pos) {
+        boolean isPosAWall = false;
+        String block = getBlock(pos);
+        if (block == PACMAN) isPosAWall = true;
+        return isPosAWall;
     }
 
     @Override
