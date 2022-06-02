@@ -8,16 +8,15 @@ package logic;
  */
 public class Fruit extends Block implements IFruit {
 
-    private data.Fruit dataFruit; // Données de base
     private boolean isEaten; // Si le fruit a été mangé
 
     /**
      * Constructeur de la classe.
      * @param dataFruit Données de base
+     * @param grid Grille de jeu
      */
-    public Fruit(data.Fruit dataFruit) {
-        super(dataFruit);
-        this.dataFruit = dataFruit;
+    public Fruit(data.Fruit dataFruit, Grid grid) {
+        super(dataFruit, grid);
     }
 
     @Override

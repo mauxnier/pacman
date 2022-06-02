@@ -10,7 +10,6 @@ import adding.Tuple2;
  */
 public class Pacman extends Block implements IPacman {
 
-    private data.Pacman dataPacman; // Données de base
     private int lives; // Nombre de vies pour la partie
     private int points; // Nombre de points pour la partie
     private boolean isSuperpowered; // Si pacman a mangé un superfruit
@@ -18,10 +17,10 @@ public class Pacman extends Block implements IPacman {
     /**
      * Constructeur de la classe.
      * @param dataPacman données de base
+     * @param grid Grille de jeu
      */
-    public Pacman(data.Pacman dataPacman) {
-        super(dataPacman);
-        this.dataPacman = dataPacman;
+    public Pacman(data.Pacman dataPacman, Grid grid) {
+        super(dataPacman, grid);
         this.lives = dataPacman.getLives();
         this.points = dataPacman.getPoints();
         this.isSuperpowered = dataPacman.getIsSuperpowered();

@@ -28,7 +28,7 @@ public class Grid implements IGrid {
     private int speed; // Rapidité du jeu
     private int width; // Largeur de la grille
     private int height; // Hauteur de la grille
-    private List<List<String>> data; // Données du CSV
+    private List<List<String>> board; // Données du CSV
     private Pacman pacman;
     private List<Wall> listeWall = new ArrayList<Wall>();
     private List<Fruit> listeFruit = new ArrayList<Fruit>();
@@ -50,7 +50,7 @@ public class Grid implements IGrid {
      */
     public void setBlock(Block block) {
         Pos pos = block.getPos();
-        this.data.get(pos.getY()).set(pos.getX(), block.getName());
+        this.board.get(pos.getY()).set(pos.getX(), block.getName());
     }
 
     /**
@@ -64,7 +64,7 @@ public class Grid implements IGrid {
 
         String block = null;
         if (x < this.width && y < this.height) {
-            block = this.data.get(y).get(x);
+            block = this.board.get(y).get(x);
         }
         return block;
     }
@@ -191,15 +191,15 @@ public class Grid implements IGrid {
     private boolean loadLevel() {
         String folderName = "data/src/";
         String fileName = folderName + "level_" + this.level + ".csv";
-        List<List<String>> data = CSV.getCSV(fileName);
-        this.data = data;
+        List<List<String>> board = CSV.getCSV(fileName);
+        this.board = board;
         // Largeur et hauteur pour un niveau carré
-        this.width = data.size();
-        this.height = data.get(0).size();
+        this.width = board.size();
+        this.height = board.get(0).size();
 
         /** Parcours de la liste de données */
-        for (int i = 0; i < data.size(); i++) {
-            List<String> line = data.get(i);
+        for (int i = 0; i < board.size(); i++) {
+            List<String> line = board.get(i);
             for (int j = 0; j < line.size(); j++) {
                 String block = line.get(j);
                 int x = j;

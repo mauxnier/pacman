@@ -8,22 +8,12 @@ package logic;
  */
 public class Wall extends Block {
 
-    private data.Wall dataWall;
-
     /**
      * Constructeur de la classe.
      * @param dataWall données de base
+     * @param grid Grille de jeu
      */
-    public Wall(data.Wall dataWall) {
-        super(dataWall);
-        this.dataWall = dataWall;
-    }
-
-    /**
-     * Retourne les données de base du mur.
-     * @return dataWall
-     */
-    public data.Wall getDataWall() {
-        return dataWall;
+    public Wall(data.Wall dataWall, Grid grid) {
+        super(dataWall, grid);
     }
 }

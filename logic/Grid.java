@@ -14,6 +14,7 @@ public class Grid implements IGrid {
     private data.Grid dataGrid;
     private int level; // Niveau du jeu
     private int speed; // Rapidité du jeu
+    private List<List<String>> board; // Position des blocs dans le jeu
     private Pacman pacman;
     private List<Wall> listeWall = new ArrayList<Wall>();
     private List<Fruit> listeFruit = new ArrayList<Fruit>();
@@ -21,6 +22,7 @@ public class Grid implements IGrid {
 
     /**
      * Constructeur de la classe.
+     * @param dataGrid Données de base
      */
     public Grid(data.Grid dataGrid) {
         this.dataGrid = dataGrid;
@@ -28,27 +30,26 @@ public class Grid implements IGrid {
         this.speed = this.dataGrid.getSpeed();
 
         /** Création du Pacman */
-        this.pacman = new Pacman(this.dataGrid.getPacman());
+        this.pacman = new Pacman(this.dataGrid.getPacman(), this);
 
         /** Création des murs */
         for (data.Wall dataWall : this.dataGrid.getWalls()) {
-            listeWall.add(new Wall(dataWall));
+            listeWall.add(new Wall(dataWall, this));
         }
 
         /** Création des fruits */
         for (data.Fruit dataFruit : this.dataGrid.getFruits()) {
-            listeFruit.add(new Fruit(dataFruit));
+            listeFruit.add(new Fruit(dataFruit, this));
         }
 
         /** Création des fantômes */
         for (data.Ghost dataGhost : this.dataGrid.getGhosts()) {
-            listeGhost.add(new Ghost(dataGhost));
+            listeGhost.add(new Ghost(dataGhost, this));
         }
     }
 
     @Override
-    public int getNbFruitsLeft(){
-        return nbFruitsLeft;
-        
+    public int getNbFruitsLeft() {
+        return nbFruitsLeft; //TODO
     }
 }

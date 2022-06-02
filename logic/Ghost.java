@@ -10,15 +10,15 @@ import adding.Tuple2;
  */
 public class Ghost extends Block implements IGhost {
 
-    private data.Ghost dataGhost;
     private boolean isAlive;
 
     /**
      * Constructeur de la classe.
+     * @param dataGhost Données de base
+     * @param grid Grille de jeu
      */
-    public Ghost(data.Ghost dataGhost) {
-        super(dataGhost);
-        this.dataGhost = dataGhost;
+    public Ghost(data.Ghost dataGhost, Grid grid) {
+        super(dataGhost, grid);
         this.isAlive = true;
     }
 
