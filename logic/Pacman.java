@@ -5,8 +5,8 @@ import adding.Tuple2;
 /**
  * Classe Pacman de la couche Logic.
  * Couche Logic : calcule le nouvel état du jeu à chaque “pas de jeu” en fonction de la direction choisie par l’utilisateur.
- * @author Killian Monnier
- * @version 01/06/2022
+ * @author Abdella Boudaoud
+ * @version 02/06/2022
  */
 public class Pacman implements IPacman {
 
@@ -19,7 +19,7 @@ public class Pacman implements IPacman {
     /**
      * Constructeur de la classe.
      */
-    public Pacman(Grid grid, data.Pacman dataPacman) {
+    public Pacman(data.Pacman dataPacman) {
         this.grid = grid;
         this.nbLives = dataPacman.getLives();
         isSuperpowered = false;

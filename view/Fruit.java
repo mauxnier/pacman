@@ -2,26 +2,28 @@ package view;
 
 import view.src.Circle;
 import view.src.Figure;
+import view.src.Square;
 
 import java.awt.*;
 
 /**
  * Classe Fruit de la couche View.
  * Couche View : affiche le nouvel état du jeu à chaque “pas de jeu”.
- * @author Killian Monnier
+ * @author Ikrame Bakkari
  * @version 01/06/2022
  */
 public class Fruit extends Circle {
 
     /** Constantes */
-    private static final Color FRUIT_COLOR = Color.WHITE;
+    private static final Color FRUIT_COLOR = Color.PINK;
     private static final Color FLOOR_COLOR = Color.BLACK;
 
     /** Attributs */
+    private Figure[] figures;
     private boolean isSuperfruit;
 
     /**
-     * Calcul et renvoie la taille d'un fruit.
+     * Calcule et renvoie la taille d'un fruit.
      * @param isSuperfruit
      * @param sizeBlock
      * @return la taille d'un fruit
@@ -70,24 +72,43 @@ public class Fruit extends Circle {
      * @param isSuperfruit si le fruit est un superfruit
      */
     public Fruit(int sizeBlock, int x, int y, boolean isSuperfruit) {
-        super(getSize(isSuperfruit, sizeBlock), getXcentre(isSuperfruit, x, sizeBlock), getYcentre(isSuperfruit, y, sizeBlock), FRUIT_COLOR);
-    }
+        super(sizeBlock, x, y, FLOOR_COLOR);
+        this.figures = new Figure[2];
+        this.isSuperfruit = isSuperfruit;
 
-    public boolean getSupra() {
-        return this.supra;
+        /** Création du sol */
+        this.figures[0] = new Square(sizeBlock, x, y, this.FLOOR_COLOR);
+
+        /** Création du fruit */
+        int sizeFruit = sizeBlock;
+        if (this.isSuperfruit) {
+            sizeFruit = sizeBlock/2;
+        } else {
+            sizeFruit = sizeBlock/5;
+        }
+        int xg = x + (sizeBlock/2) - (sizeFruit/2);
+        int yg = y + (sizeBlock/2) - (sizeFruit/2);
+        this.figures[1] = new Circle(sizeFruit, xg, yg, this.FRUIT_COLOR);
     }
 
     /**
-     * dessine l'objet case Gomme
-     * Square (fond)
-     * Circle (gomme si exist)
+     * Retourne si le fruit est un superfruit.
+     * @return isSuperfruit
      */
-    public void draw () {
+    public boolean getIsSuperfruit() {
+        return this.isSuperfruit;
+    }
+
+    /**
+     * Dessine le bloc d'un fruit.
+     * Square (fond)
+     * Circle (fruit)
+     */
+    public void draw() {
         for (Figure f : this.figures) {
-            if (f!=null) {
+            if (f != null) {
                 f.draw();
             }
         }
     }
-
 }

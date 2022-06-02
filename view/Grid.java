@@ -1,35 +1,46 @@
 package view;
 
+import view.src.Figure;
+
 /**
  * Classe Grid de la couche View.
  * Couche View : affiche le nouvel état du jeu à chaque “pas de jeu”.
- * @author Killian Monnier
+ * @author Ikrame Bakkari
  * @version 01/06/2022
  */
 public class Grid {
 
-    /** Tableau à deux dimension de figure contenant toute les figures de la map case par case */
-    private Figure[][] theMap;
+    /** Tableau à deux dimension de figure contenant toute les figures de la grille bloc par bloc */
+    private Figure[][] board;
+    private int width;
+    private int height;
 
-    public MapGenerate(int length) {
-        this.theMap = new Figure[length][length];
+    /**
+     * Constructeur de la classe.
+     * @param width
+     * @param height
+     */
+    public Grid(int width, int height) {
+        this.width = width;
+        this.height = height;
+        this.board = new Figure[height][width];
     }
 
-    public void setFigure (int i, int j, Figure f) {
-        this.theMap[i][j] = f;
+    public void setFigure(int i, int j, Figure f) {
+        this.board[i][j] = f;
     }
 
-    public Figure[][] getTheMap () {
-        return this.theMap;
+    public Figure[][] getBoard() {
+        return this.board;
     }
 
     /**
-     * dessine la map
+     * Dessine la grille.
      */
-    public void draw () {
-        for (Figure[] fl : this.theMap) {
-            for (Figure f : fl) {
-                if (f!=null) {
+    public void draw() {
+        for (Figure[] line : this.board) {
+            for (Figure f : line) {
+                if (f != null) {
                     f.draw();
                 }
             }

@@ -12,6 +12,9 @@ import java.util.Random;
  * @inv getSize() == 40
  * @inv getColor() != null
  * @inv getHeight() == getSize() && getWidth() == getSize()
+ *
+ * * @author Ikrame Bakkari
+ *  * @version 01/06/2022
  */
 public class Pacman extends Circle
 {

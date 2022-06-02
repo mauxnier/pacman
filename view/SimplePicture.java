@@ -1,8 +1,7 @@
 package view;
 
 import view.src.CanvasFrame;
-
-import java.awt.*;
+import view.src.Figure;
 
 /**
  * This class represents a simple picture, composed of different figures: a
@@ -29,23 +28,8 @@ public class SimplePicture
     public SimplePicture()
     {
         this.figures = new Figure[]{
-                new House(180, 230, 80), // house
-                new Sun(80, 330, 50), // sun
-                new Person(50, 80, 330, 200, Color.BLUE) // person
         };
         this.canvas = CanvasFrame.getCanvas();
-    }
-
-    /**
-     * Displays the picture in a window, and animate it
-     *
-     * @param args NONE
-     */
-    public static void main(String[] args)
-    {
-        SimplePicture picture = new SimplePicture();
-        picture.draw();
-        picture.animate();
     }
 
     /**

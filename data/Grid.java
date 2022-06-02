@@ -131,6 +131,51 @@ public class Grid implements IGrid {
     }
 
     /**
+     * Charge le niveau du jeu avec un des CSV du dossier src/
+     * @return si le niveau est bien chargé
+     */
+    private boolean loadLevel() {
+        String folderName = "data/src/";
+        String fileName = folderName + "level_" + this.level + ".csv";
+        List<List<String>> data = CSV.getCSV(fileName);
+        this.data = data;
+        // Largeur et hauteur pour un niveau carré
+        this.width = data.size();
+        this.height = data.get(0).size();
+
+        /** Parcours de la liste de données */
+        for (int i = 0; i < data.size(); i++) {
+            List<String> line = data.get(i);
+            for (int j = 0; j < line.size(); j++) {
+                String block = line.get(j);
+                int x = j;
+                int y = i;
+
+                switch (block) {
+                    case WALL:
+                        this.listeWall.add(new Wall(WALL, x, y));
+                        break;
+                    case FRUIT:
+                    case SUPERFRUIT:
+                        this.listeFruit.add(new Fruit(FRUIT, x, y, block));
+                        break;
+                    case GHOST:
+                        this.listeGhost.add(new Ghost(GHOST, x, y));
+                        break;
+                    case PACMAN:
+                        this.pacman = new Pacman(PACMAN, x, y);
+                        break;
+                    default:
+                        System.out.println("Block inconnu : " + block);
+                        break;
+                }
+            }
+        }
+        // System.out.println(data);
+        return true;
+    }
+
+    /**
      * Donne le niveau du jeu.
      * @return niveau de jeu
      */
@@ -184,48 +229,31 @@ public class Grid implements IGrid {
         return this.listeWall;
     }
 
-    /**
-     * Charge le niveau du jeu avec un des CSV du dossier src/
-     * @return si le niveau est bien chargé
-     */
-    private boolean loadLevel() {
-        String folderName = "data/src/";
-        String fileName = folderName + "level_" + this.level + ".csv";
-        List<List<String>> data = CSV.getCSV(fileName);
-        this.data = data;
-        // Largeur et hauteur pour un niveau carré
-        this.width = data.size();
-        this.height = data.get(0).size();
+    public void setLevel(int level) {
+        this.level = level;
+    }
 
-        /** Parcours de la liste de données */
-        for (int i = 0; i < data.size(); i++) {
-            List<String> line = data.get(i);
-            for (int j = 0; j < line.size(); j++) {
-                String block = line.get(j);
-                int x = j;
-                int y = i;
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
 
-                switch (block) {
-                    case WALL:
-                        this.listeWall.add(new Wall(WALL, x, y));
-                        break;
-                    case FRUIT:
-                    case SUPERFRUIT:
-                        this.listeFruit.add(new Fruit(FRUIT, x, y, block));
-                        break;
-                    case GHOST:
-                        this.listeGhost.add(new Ghost(GHOST, x, y));
-                        break;
-                    case PACMAN:
-                        this.pacman = new Pacman(PACMAN, x, y);
-                        break;
-                    default:
-                        System.out.println("Block inconnu : " + block);
-                        break;
-                }
-            }
-        }
-        // System.out.println(data);
-        return true;
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public List<List<String>> getData() {
+        return data;
     }
 }

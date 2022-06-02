@@ -33,7 +33,7 @@ public class Pacman extends Block implements IPacman {
     }
 
     /**
-     * Donne le nombre de vie restant pour le pacman.
+     * Donne le nombre de vie de base pour le pacman.
      * @return nombre de vie
      */
     @Override
@@ -42,7 +42,7 @@ public class Pacman extends Block implements IPacman {
     }
 
     /**
-     * Donne le nombre de points accumulé par le pacman.
+     * Donne le nombre de points de base pour le pacman.
      * @return nombre de points
      */
     @Override
