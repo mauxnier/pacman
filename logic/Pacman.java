@@ -8,23 +8,23 @@ import adding.Tuple2;
  * @author Abdella Boudaoud
  * @version 02/06/2022
  */
-public class Pacman implements IPacman {
+public class Pacman extends Block implements IPacman {
 
-    private Grid grid;
-    private Game game;
-    data.Pacman dataPacman;
-    private int nbLives;
-    private boolean isSuperpowered;
+    private data.Pacman dataPacman; // Données de base
+    private int lives; // Nombre de vies pour la partie
+    private int points; // Nombre de points pour la partie
+    private boolean isSuperpowered; // Si pacman a mangé un superfruit
 
     /**
      * Constructeur de la classe.
+     * @param dataPacman données de base
      */
     public Pacman(data.Pacman dataPacman) {
-        this.grid = grid;
-        this.nbLives = dataPacman.getLives();
-        isSuperpowered = false;
-        game = grid.game;
-
+        super(dataPacman);
+        this.dataPacman = dataPacman;
+        this.lives = dataPacman.getLives();
+        this.points = dataPacman.getPoints();
+        this.isSuperpowered = dataPacman.getIsSuperpowered();
     }
 
     @Override
@@ -111,5 +111,29 @@ public class Pacman implements IPacman {
 
     public int getNbLives(){
         return nbLives;
+    }
+
+    /**
+     * Retourne un nombre de points.
+     * @return points
+     */
+    public int getPoints() {
+        return this.points;
+    }
+
+    /**
+     * Définie un nombre de points.
+     * @param points
+     */
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+    /**
+     * Ajoute des points.
+     * @param points
+     */
+    public void addPoints(int points){
+        this.points += points;
     }
 }

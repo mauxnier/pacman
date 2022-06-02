@@ -6,28 +6,27 @@ package logic;
  * @author Abdella Boudaoud
  * @version 02/06/2022
  */
-public class Fruit implements IFruit {
+public class Fruit extends Block implements IFruit {
 
-    private Game game;
-    data.Fruit dataFruit;
-    private boolean isEaten;
+    private data.Fruit dataFruit; // Données de base
+    private boolean isEaten; // Si le fruit a été mangé
 
     /**
      * Constructeur de la classe.
+     * @param dataFruit Données de base
      */
-    public Fruit(Game game, data.Fruit dataFruit) {
-        this.game = game;
-        isEaten = false;
+    public Fruit(data.Fruit dataFruit) {
+        super(dataFruit);
         this.dataFruit = dataFruit;
     }
 
     @Override
-    public boolean isEaten(){
+    public boolean isEaten() {
         return isEaten;
     }
 
     @Override
-    public void disappear(){
+    public void disappear() {
         isEaten = true;
     }
 }

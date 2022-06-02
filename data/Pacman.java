@@ -17,7 +17,7 @@ public class Pacman extends Block implements IPacman {
     /** Attributs */
     private int lives; // Nombre de vies pour la partie
     private int points; // Nombre de points pour la partie
-    private boolean superpower; // Si pacman a mangé un superfruit
+    private boolean isSuperpowered; // Si pacman a mangé un superfruit
 
     /**
      * Constructeur de la classe.
@@ -29,7 +29,7 @@ public class Pacman extends Block implements IPacman {
         super(name, x, y);
         this.lives = DEFAULT_LIVES;
         this.points = DEFAULT_POINTS;
-        this.superpower = DEFAULT_SUPERPOWER;
+        this.isSuperpowered = DEFAULT_SUPERPOWER;
     }
 
     /**
@@ -48,5 +48,13 @@ public class Pacman extends Block implements IPacman {
     @Override
     public int getPoints() {
         return this.points;
+    }
+
+    /**
+     * Retourne si pacman est en superpouvoir.
+     * @return isSuperpowered
+     */
+    public boolean getIsSuperpowered() {
+        return this.isSuperpowered;
     }
 }

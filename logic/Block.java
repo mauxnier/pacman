@@ -1,0 +1,60 @@
+package logic;
+
+import adding.Pos;
+
+/**
+ * Classe Block de la couche Logic.
+ * Couche Logic : calcule le nouvel état du jeu à chaque “pas de jeu” en fonction de la direction choisie par l’utilisateur.
+ * @author Abdella Boudaoud
+ * @version 02/06/2022
+ */
+public class Block {
+
+    /** Attributs */
+    private String name; // Nom du bloc dans le CSV
+    private int x; // Position en x dans la grille
+    private int y; // Position en y dans la grille
+
+    /**
+     * Constructeur de la classe.
+     * @param block
+     */
+    public Block(data.Block block) {
+        this.name = block.getName();
+        this.x = block.getPos().getX();
+        this.y = block.getPos().getY();
+    }
+
+    /**
+     * Donne le nom du block sur la grille de jeu.
+     * @return nom du block
+     */
+    public String getName() {
+        return this.name;
+    }
+
+    /**
+     * Donne la position du block sur la grille de jeu.
+     * @return position du block
+     */
+    public Pos getPos() {
+        return new Pos(this.x, this.y);
+    }
+
+    /**
+     * Change le nom du bloc.
+     * @param name nom du bloc
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * Change la position du bloc.
+     * @param pos position x et y
+     */
+    public void setPos(Pos pos) {
+        this.x = pos.getX();
+        this.y = pos.getY();
+    }
+}

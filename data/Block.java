@@ -42,21 +42,4 @@ public class Block {
     public Pos getPos() {
         return new Pos(this.x, this.y);
     }
-
-    /**
-     * Change le nom du bloc.
-     * @param name nom du bloc
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Change la position du bloc.
-     * @param pos position x et y
-     */
-    public void setPos(Pos pos) {
-        this.x = pos.getX();
-        this.y = pos.getY();
-    }
 }

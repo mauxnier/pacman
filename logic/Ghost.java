@@ -8,22 +8,18 @@ import adding.Tuple2;
  * @author Abdella Boudaoud
  * @version 02/06/2022
  */
-public class Ghost implements IGhost {
+public class Ghost extends Block implements IGhost {
 
-    private Game game;
-    private Grid grid;
-    private boolean alive;
-    data.Ghost dataGhost;
+    private data.Ghost dataGhost;
+    private boolean isAlive;
 
     /**
      * Constructeur de la classe.
      */
-    public Ghost(Grid grid, data.Ghost dataGhost) {
-        this.grid = grid;
-        game = grid.game;
-        alive = true;
+    public Ghost(data.Ghost dataGhost) {
+        super(dataGhost);
         this.dataGhost = dataGhost;
-
+        this.isAlive = true;
     }
 
     @Override

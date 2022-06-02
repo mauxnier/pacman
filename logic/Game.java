@@ -9,25 +9,17 @@ package logic;
 public class Game implements IGame {
 
     private data.Game dataGame;
-    private int points;
-    private int level;
+    private int level; // Niveau de jeu
+    private Grid grid; // Grille du jeu
 
     /**
      * Constructeur de la classe.
      * @param dataGame
      */
     public Game(data.Game dataGame) {
-        points = 0;
-        level = 1;
         this.dataGame = dataGame;
-    }
-
-    /**
-     * Retourne l'objet data.Game
-     * @return dataGame
-     */
-    public data.Game getDataGame() {
-        return this.dataGame;
+        this.level = this.dataGame.getLevel();
+        this.grid = new Grid(this.dataGame.getGrid());
     }
 
     @Override
@@ -40,18 +32,19 @@ public class Game implements IGame {
         this.dataGame.levelUp();
     }
 
-    @Override
-    public int getPoints() {
-        return this.dataGame.getGrid().getPacman().getPoints();
+    public data.Game getDataGame() {
+        return dataGame;
     }
 
-    @Override
-    public void setPoints(int points) {
-        this.dataGame.getGrid().getPacman().setPoints() = points;
+    public int getLevel() {
+        return level;
     }
 
-    @Override
-    public void addPoints(int points){
-        this.points += points;
+    public Grid getGrid() {
+        return grid;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 }
