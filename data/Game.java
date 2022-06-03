@@ -16,7 +16,7 @@ public class Game implements IGame {
      */
     public Game(int level) {
         this.level = level;
-        this.grid = createLevel(level);
+        createLevel();
     }
 
     /**
@@ -32,15 +32,14 @@ public class Game implements IGame {
      */
     public void levelUp() {
         this.level += 1;
-        this.grid = createLevel(this.level);
+        this.createLevel();
     }
 
     /**
      * Créer une grille de jeu en fonction d'un niveau.
-     * @param level Niveau du jeu
      */
-    private Grid createLevel(int level) {
-        return new Grid(this.level);
+    private void createLevel() {
+        this.grid = new Grid(this);
     }
 
     /**

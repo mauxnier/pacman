@@ -10,7 +10,9 @@ import adding.Tuple2;
  */
 public class Ghost extends Block implements IGhost {
 
+    private data.Ghost dataGhost;
     private boolean isAlive;
+
 
     /**
      * Constructeur de la classe.
@@ -19,7 +21,16 @@ public class Ghost extends Block implements IGhost {
      */
     public Ghost(data.Ghost dataGhost, Grid grid) {
         super(dataGhost, grid);
+        this.dataGhost = dataGhost;
         this.isAlive = true;
+    }
+
+    /**
+     * Retourne les données de base.
+     * @return data
+     */
+    public data.Ghost getDataBlock() {
+        return this.dataGhost;
     }
 
     @Override

@@ -9,6 +9,7 @@ package logic;
 public class Fruit extends Block implements IFruit {
 
     private boolean isEaten; // Si le fruit a été mangé
+    private data.Fruit dataFruit;
 
     /**
      * Constructeur de la classe.
@@ -17,6 +18,15 @@ public class Fruit extends Block implements IFruit {
      */
     public Fruit(data.Fruit dataFruit, Grid grid) {
         super(dataFruit, grid);
+        this.dataFruit = dataFruit;
+    }
+
+    /**
+     * Retourne les données de base.
+     * @return data
+     */
+    public data.Fruit getDataBlock() {
+        return this.dataFruit;
     }
 
     @Override

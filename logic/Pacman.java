@@ -19,6 +19,7 @@ public class Pacman extends Block implements IPacman {
     private int lives; // Nombre de vies pour la partie
     private int points; // Nombre de points pour la partie
     private boolean isSuperpowered; // Si pacman a mangé un superfruit
+    private data.Pacman dataPacman;
 
     /**
      * Constructeur de la classe.
@@ -27,9 +28,18 @@ public class Pacman extends Block implements IPacman {
      */
     public Pacman(data.Pacman dataPacman, Grid grid) {
         super(dataPacman, grid);
+        this.dataPacman = dataPacman;
         this.lives = dataPacman.getLives();
         this.points = dataPacman.getPoints();
         this.isSuperpowered = dataPacman.getIsSuperpowered();
+    }
+
+    /**
+     * Retourne les données de base.
+     * @return data
+     */
+    public data.Pacman getDataBlock() {
+        return this.dataPacman;
     }
 
     /**
@@ -79,55 +89,50 @@ public class Pacman extends Block implements IPacman {
     @Override
     public void eatFruit(Fruit eatedFruit){
         eatedFruit.disappear();
-        int fruitValue = eatedFruit.dataFruit.getPoints();
-        game.addPoints(fruitValue);
-
+        int fruitValue = eatedFruit.getDataBlock().getPoints();
+        this.addPoints(fruitValue);
     }
 
     @Override
     public void eatGhost(Ghost eatedGhost){
         eatedGhost.die();
-        int ghostValue = eatedGhost.dataGhost.getPoints();
-        game.addPoints(ghostValue);
-
+        int ghostValue = eatedGhost.getDataBlock().getPoints();
+        this.addPoints(ghostValue);
     }
 
     @Override
-    public void superpower(){
-        isSuperpowered = true;
-
+    public void superpower() {
+        this.isSuperpowered = true;
     }
 
     @Override
-    public void hurt(){
-        nbLives--;
+    public void hurt() {
+        this.lives--;
     }
 
     @Override
-    public void die(){
-        game.endLevel();
+    public void die() {
+        this.getGrid()..endLevel();
     }
 
     @Override
     public boolean isOnGhost(){
         boolean isOnGhost = false;
         return isOnGhost;
-
     }
 
     @Override
-    public boolean isOnFruit(){
+    public boolean isOnFruit() {
         boolean isOnFruit = false;
         return isOnFruit;
-
     }
 
-    public boolean isSuperpowered(){
-        return isSuperpowered;
+    public boolean isSuperpowered() {
+        return this.isSuperpowered;
     }
 
-    public int getNbLives(){
-        return nbLives;
+    public int getLives(){
+        return this.lives;
     }
 
     /**

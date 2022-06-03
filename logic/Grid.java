@@ -152,6 +152,6 @@ public class Grid implements IGrid {
 
     @Override
     public int getNbFruitsLeft() {
-        return nbFruitsLeft; //TODO
+        return 0; //TODO
     }
 }

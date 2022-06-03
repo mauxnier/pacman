@@ -14,20 +14,18 @@ public class Block {
     private String name; // Nom du bloc dans le CSV
     private int x; // Position en x dans la grille
     private int y; // Position en y dans la grille
-    private data.Block dataBlock; // Données de la couche data
     private Grid grid; // Grille de jeu de la couche logic
 
     /**
      * Constructeur de la classe.
-     * @param block
+     * @param dataBlock
      * @param grid
      */
     public Block(data.Block dataBlock, Grid grid) {
-        this.dataBlock = dataBlock;
         this.grid = grid;
-        this.name = this.dataBlock.getName();
-        this.x = this.dataBlock.getPos().getX();
-        this.y = this.dataBlock.getPos().getY();
+        this.name = dataBlock.getName();
+        this.x = dataBlock.getPos().getX();
+        this.y = dataBlock.getPos().getY();
     }
 
     /**
@@ -61,14 +59,6 @@ public class Block {
     public void setPos(Pos pos) {
         this.x = pos.getX();
         this.y = pos.getY();
-    }
-
-    public data.Block getDataBlock() {
-        return dataBlock;
-    }
-
-    public void setDataBlock(data.Block dataBlock) {
-        this.dataBlock = dataBlock;
     }
 
     public Grid getGrid() {

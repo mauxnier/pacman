@@ -1,6 +1,5 @@
 package data;
 
-import adding.Pos;
 import adding.CSV;
 
 import java.util.ArrayList;
@@ -23,37 +22,32 @@ public class Grid implements IGrid {
     public static final int GAME_SPEED = 1; // Vitesse du jeu
 
     /** Attributs de la grille */
+    private Game game;
     private int level; // Niveau du jeu
     private int speed; // Rapidité du jeu
     private int width; // Largeur de la grille
     private int height; // Hauteur de la grille
     private List<List<String>> data; // Données du CSV
     private List<List<Block>> board = new ArrayList<List<Block>>(); // Plateau de jeu
+    private Pacman pacman;
 
     /**
      * Constructeur de la classe.
-     * @param level
+     * @param game
      */
-    public Grid(int level) {
-        this.level = level;
+    public Grid(Game game) {
+        this.game = game;
+        this.level = this.game.getLevel();
         this.speed = GAME_SPEED;
         loadLevel();
     }
 
     /**
-     * Retourne la largeur
-     * @return width
+     * Retourne le jeu
+     * @return data.Game
      */
-    public int getWidth() {
-        return this.width;
-    }
-
-    /**
-     * Retourne la hauteur.
-     * @return height
-     */
-    public int getHeight() {
-        return this.height;
+    public Game getGame() {
+        return this.game;
     }
 
     /**
@@ -75,7 +69,60 @@ public class Grid implements IGrid {
     }
 
     /**
-     * Retourne
+     * Retourne la largeur
+     * @return width
+     */
+    public int getWidth() {
+        return this.width;
+    }
+
+    /**
+     * Retourne la hauteur.
+     * @return height
+     */
+    public int getHeight() {
+        return this.height;
+    }
+
+    /**
+     * Retourne le pacman du jeu.
+     * @return pacman
+     */
+    @Override
+    public Pacman getPacman() {
+        return this.pacman;
+    }
+
+    /**
+     * Retourne les fantômes du jeu.
+     * @return fantômes
+     */
+    @Override
+    public List<Ghost> getGhosts() {
+        return null;
+    }
+
+    /**
+     * Retourne les fruits du jeu.
+     * @return fruits
+     */
+    @Override
+    public List<Fruit> getFruits() {
+        return null;
+    }
+
+    /**
+     * Retourne les murs du jeu.
+     * @return murs
+     */
+    @Override
+    public List<Wall> getWalls() {
+        return null;
+    }
+
+
+    /**
+     * Retourne le plateau de jeu.
      * @return pacman
      */
     public List<List<Block>> getBoard() {
@@ -105,17 +152,18 @@ public class Grid implements IGrid {
 
                 switch (block) {
                     case WALL:
-                        this.listeWall.add(new Wall(WALL, x, y));
+                        this.board.get(y).set(x, new Wall(WALL, x, y));
                         break;
                     case FRUIT:
                     case SUPERFRUIT:
-                        this.listeFruit.add(new Fruit(FRUIT, x, y, block));
+                        this.board.get(y).set(x, new Fruit(FRUIT, x, y, block));
                         break;
                     case GHOST:
-                        this.listeGhost.add(new Ghost(GHOST, x, y));
+                        this.board.get(y).set(x, new Ghost(GHOST, x, y));
                         break;
                     case PACMAN:
                         this.pacman = new Pacman(PACMAN, x, y);
+                        this.board.get(y).set(x, this.pacman);
                         break;
                     default:
                         System.out.println("Block inconnu : " + block);
@@ -123,7 +171,20 @@ public class Grid implements IGrid {
                 }
             }
         }
-        // System.out.println(data);
+        this.printBoard();
         return true;
+    }
+
+    /**
+     * Imprime le plateau de jeu dans la console.
+     */
+    private void printBoard() {
+        for (List<Block> line : this.board) {
+            System.out.print("|");
+            for (Block block : line) {
+                System.out.print(block + "|");
+            }
+            System.out.print("\n");
+        }
     }
 }
