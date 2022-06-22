@@ -28,6 +28,7 @@ public class Grid implements IGrid {
     private int speed; // Rapidité du jeu
     private int width; // Largeur de la grille
     private int height; // Hauteur de la grille
+    private int nbFruitsLeft; // Nombre de fruits restants à manger
     private List<List<String>> board; // Position des blocs dans le jeu
     private Pacman pacman;
     private List<Wall> listeWall = new ArrayList<Wall>();
@@ -65,11 +66,38 @@ public class Grid implements IGrid {
     }
 
     /**
+     *
+     * @param block
+     */
+    public void moveBlock(Block block) {
+        Pos pos = block.getPos();
+        switch (block) {
+            case WALL:
+                this.board.get(y).set(x, new data.Wall(WALL, x, y));
+                break;
+            case FRUIT:
+            case SUPERFRUIT:
+                this.board.get(y).set(x, new data.Fruit(FRUIT, x, y, block));
+                break;
+            case GHOST:
+                this.board.get(y).set(x, new data.Ghost(GHOST, x, y));
+                break;
+            case PACMAN:
+                this.pacman = new data.Pacman(PACMAN, x, y);
+                this.board.get(y).set(x, this.pacman);
+                break;
+            default:
+                System.out.println("Block inconnu : " + block);
+                break;
+        }
+    }
+
+    /**
      * Ajoute un bloc sur une position dans la grille.
      * @param block élément à placer sur la grille
+     * @param pos la position dans la grille
      */
-    public void setBlock(Block block) {
-        Pos pos = block.getPos();
+    private void setBlock(Block block, Pos pos) { //TODO passer le setblock en privé et faire une autre fonction replaceBlock
         this.board.get(pos.getY()).set(pos.getX(), block.getName());
     }
 
@@ -150,8 +178,60 @@ public class Grid implements IGrid {
         return isPosAWall;
     }
 
+    /**
+     * Retoure le reste de fruits à manger.
+     * @return
+     */
+    public int updateNbFruitsLeft() {
+        int nbFruits = 0;
+        for (Fruit fruit : this.listeFruit) {
+            nbFruits++;
+        }
+        return nbFruits;
+    }
+
     @Override
     public int getNbFruitsLeft() {
-        return 0; //TODO
+        return this.nbFruitsLeft;
+    }
+
+    public data.Grid getDataGrid() {
+        return this.dataGrid;
+    }
+
+    public int getLevel() {
+        return this.level;
+    }
+
+    public int getSpeed() {
+        return this.speed;
+    }
+
+    public int getWidth() {
+        return this.width;
+    }
+
+    public int getHeight() {
+        return this.height;
+    }
+
+    public List<List<String>> getBoard() {
+        return this.board;
+    }
+
+    public Pacman getPacman() {
+        return this.pacman;
+    }
+
+    public List<Wall> getWalls() {
+        return this.listeWall;
+    }
+
+    public List<Fruit> getFruits() {
+        return this.listeFruit;
+    }
+
+    public List<Ghost> getGhosts() {
+        return this.listeGhost;
     }
 }
