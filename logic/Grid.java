@@ -66,25 +66,24 @@ public class Grid implements IGrid {
     }
 
     /**
-     *
+     * Permet de bouger un block dans la grille de jeu en synchronisant les données associées.
      * @param block
      */
-    public void moveBlock(Block block) {
-        Pos pos = block.getPos();
+    public void moveBlock(Block block, Pos pos) { //TODO
+        Block toBlock = this.getBlock(pos);
         switch (block) {
             case WALL:
-                this.board.get(y).set(x, new data.Wall(WALL, x, y));
+
                 break;
             case FRUIT:
             case SUPERFRUIT:
-                this.board.get(y).set(x, new data.Fruit(FRUIT, x, y, block));
+
                 break;
             case GHOST:
-                this.board.get(y).set(x, new data.Ghost(GHOST, x, y));
+
                 break;
             case PACMAN:
-                this.pacman = new data.Pacman(PACMAN, x, y);
-                this.board.get(y).set(x, this.pacman);
+
                 break;
             default:
                 System.out.println("Block inconnu : " + block);
@@ -97,7 +96,7 @@ public class Grid implements IGrid {
      * @param block élément à placer sur la grille
      * @param pos la position dans la grille
      */
-    private void setBlock(Block block, Pos pos) { //TODO passer le setblock en privé et faire une autre fonction replaceBlock
+    private void setBlock(Block block, Pos pos) {
         this.board.get(pos.getY()).set(pos.getX(), block.getName());
     }
 
