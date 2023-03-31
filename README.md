@@ -1,5 +1,5 @@
 # PACMAN
-TP6 : Pac-Man
+Projet Pac-Man (TP6) en POO
 
 ## TODO
 
